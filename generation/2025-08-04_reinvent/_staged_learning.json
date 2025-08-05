@@ -1,0 +1,289 @@
+{
+    "run_type": "staged_learning",
+    "device": "cuda:0",
+    "use_cuda": true,
+    "tb_logdir": "tb_logs",
+    "json_out_config": "_staged_learning.json",
+    "seed": null,
+    "parameters": {
+        "prior_file": "/home/corey/software/REINVENT4/priors/reinvent.prior",
+        "agent_file": "/home/corey/software/REINVENT4/priors/reinvent.prior",
+        "summary_csv_prefix": "staged_learning",
+        "use_checkpoint": false,
+        "purge_memories": false,
+        "smiles_file": null,
+        "sample_strategy": "multinomial",
+        "distance_threshold": 99999,
+        "batch_size": 128,
+        "randomize_smiles": true,
+        "unique_sequences": true,
+        "temperature": 1.0,
+        "tb_isim": false
+    },
+    "scoring": null,
+    "scheduler": null,
+    "responder": null,
+    "filter": null,
+    "stage": [
+        {
+            "max_steps": 50,
+            "max_score": 0.6,
+            "chkpt_file": "2025-08-04_reinvent.chkpt",
+            "termination": "simple",
+            "min_steps": 20,
+            "scoring": {
+                "type": "geometric_mean",
+                "component": [
+                    {
+                        "QED": {
+                            "endpoint": [
+                                {
+                                    "name": "QED",
+                                    "weight": 0.7
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "Maize": {
+                            "endpoint": [
+                                {
+                                    "name": "gnina score",
+                                    "weight": 0.7,
+                                    "params": {
+                                        "executable": "/home/corey/miniconda3/envs/maize/bin/maize",
+                                        "workflow": "/home/corey/Documents/comp_chem/generation/param_files/gnina_ep4.yml",
+                                        "config": "/home/corey/Documents/comp_chem/generation/param_files/maize.toml",
+                                        "debug": true,
+                                        "keep": true,
+                                        "log": "/home/corey/Documents/comp_chem/generation/2025-08-04_reinvent/maize_worfklow_docking.log"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "custom_alerts": {
+                            "endpoint": [
+                                {
+                                    "name": "Alerts",
+                                    "params": {
+                                        "smarts": [
+                                            "[*;r8]",
+                                            "[*;r9]",
+                                            "[*;r10]",
+                                            "[*;r11]",
+                                            "[*;r12]",
+                                            "[*;r13]",
+                                            "[*;r14]",
+                                            "[*;r15]",
+                                            "[*;r16]",
+                                            "[*;r17]",
+                                            "[#8][#8]",
+                                            "[#6;+]",
+                                            "[#16][#16]",
+                                            "[#7;!n][S;!$(S(=O)=O)]",
+                                            "[#7;!n][#7;!n]",
+                                            "C#C",
+                                            "C(=[O,S])[O,S]",
+                                            "[#7;!n][C;!$(C(=[O,N])[N,O])][#16;!s]",
+                                            "[#7;!n][C;!$(C(=[O,N])[N,O])][#7;!n]",
+                                            "[#7;!n][C;!$(C(=[O,N])[N,O])][#8;!o]",
+                                            "[#8;!o][C;!$(C(=[O,N])[N,O])][#16;!s]",
+                                            "[#8;!o][C;!$(C(=[O,N])[N,O])][#8;!o]",
+                                            "[#16;!s][C;!$(C(=[O,N])[N,O])][#16;!s]",
+                                            "[NH2]",
+                                            "[OH]"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "MolecularWeight": {
+                            "endpoint": [
+                                {
+                                    "name": "MW",
+                                    "transform": {
+                                        "type": "double_sigmoid",
+                                        "high": 500.0,
+                                        "low": 200.0,
+                                        "coef_div": 500.0,
+                                        "coef_si": 20.0,
+                                        "coef_se": 20.0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SlogP": {
+                            "endpoint": [
+                                {
+                                    "name": "SlogP (RDKit)",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "reverse_sigmoid",
+                                        "high": 3,
+                                        "low": 1,
+                                        "k": 0.5
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "TPSA": {
+                            "endpoint": [
+                                {
+                                    "name": "TPSA",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "double_sigmoid",
+                                        "high": 140.0,
+                                        "low": 0.0,
+                                        "coef_div": 140.0,
+                                        "coef_si": 20.0,
+                                        "coef_se": 20.0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "NumAtomStereoCenters": {
+                            "endpoint": [
+                                {
+                                    "name": "Number of stereo centers",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "step",
+                                        "high": 3,
+                                        "low": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "HBondAcceptors": {
+                            "endpoint": [
+                                {
+                                    "name": "Number of HB acceptors (Lipinski)",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "reverse_sigmoid",
+                                        "high": 10,
+                                        "low": 8,
+                                        "k": 0.5
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "HBondDonors": {
+                            "endpoint": [
+                                {
+                                    "name": "Number of HB donors (Lipinski)",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "reverse_sigmoid",
+                                        "high": 4,
+                                        "low": 0,
+                                        "k": 0.5
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "NumRotBond": {
+                            "endpoint": [
+                                {
+                                    "name": "Number of rotatable bonds",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "reverse_sigmoid",
+                                        "high": 20,
+                                        "low": 0,
+                                        "k": 0.5
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "NumHeavyAtoms": {
+                            "endpoint": [
+                                {
+                                    "name": "Number of Heavy atoms",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "reverse_sigmoid",
+                                        "high": 80,
+                                        "low": 20,
+                                        "k": 0.5
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "MolVolume": {
+                            "endpoint": [
+                                {
+                                    "name": "Molecular Volume (RDKit)",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "reverse_sigmoid",
+                                        "high": 600,
+                                        "low": 300,
+                                        "k": 0.5
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SAScore": {
+                            "endpoint": [
+                                {
+                                    "name": "SA score",
+                                    "weight": 0,
+                                    "transform": {
+                                        "type": "reverse_sigmoid",
+                                        "high": 10,
+                                        "low": 0,
+                                        "k": 0.5
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "filename": null
+            },
+            "diversity_filter": null
+        }
+    ],
+    "learning_strategy": {
+        "type": "dap",
+        "sigma": 500,
+        "rate": 0.0001
+    },
+    "diversity_filter": {
+        "type": "IdenticalMurckoScaffold",
+        "bucket_size": 150,
+        "minscore": 0.4,
+        "minsimilarity": 0.7,
+        "penalty_multiplier": 0.5
+    },
+    "inception": {
+        "smiles_file": "ep4_chembl_ligs.smi",
+        "memory_size": 100,
+        "sample_size": 25,
+        "deduplicate": true
+    }
+}
