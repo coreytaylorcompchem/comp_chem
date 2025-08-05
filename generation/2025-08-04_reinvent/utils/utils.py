@@ -37,7 +37,7 @@ def generate_search_library(df: pd.DataFrame, project_name: str):
     df : pd.DataFrame
         Dataframe containing RdKit Mol files
     project_name : str
-        Name of internal Aqemia project
+        Name of project
     """
 
     suppl = df['rdkit_mols']
@@ -518,9 +518,9 @@ def dataframe_to_sdf(
         "complex_prmtop_s3_path",
         "complex_relaxed_rst7_s3_path",
         "complex_relaxed_pdb_s3_path",
-        "aqemia_score",
+        "_score",
         "strain",
-        "aqemia_score_with_ml_correction",
+        "_score_with_ml_correction",
         "dg_sol_PL",
         "dg_sol_P",
         "dg_sol_L",

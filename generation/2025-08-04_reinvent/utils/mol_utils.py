@@ -965,9 +965,6 @@ def get_minimal_core(
 
     This functionc an typically be used to extract a contact-scaffold: the minimal
     substructure of the molecule responsible for certain contacts or binding model.
-    One typically uses `aqemia-interaction-profiler` to get a mol and corresponding
-    atom IDs of the atom responsible for the contacts, and pass both of those to this
-    function to retrieve the contact-scaffold.
     This scaffold can be used e.g. in clustering molecules, estimating diversity etc...
 
 
@@ -996,10 +993,6 @@ def get_minimal_core(
     except ImportError as err:
         raise ImportError(
             "The get_minimal_core() function requires the networkx package. "
-            "Install aqemia-ml-common with the 'all' or 'networkx' extra using pip or poetry, e.g.\n"
-            "\tpip install aqemia-ml-common[all]\n"
-            "\tpoetry add --extra all aqemia-ml-common\n"
-            "to get the optional dependency."
         ) from err
     selected_atoms = _get_minimal_core_atomids(mol, list(atom_ids))
 

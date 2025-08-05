@@ -64,7 +64,7 @@ class Columns:
     charge_insi = 'charge (in-silico)'
     name_insi = 'Molecule Name (in-silico)'
     synonym_insi = 'Synonyms (in-silico)'
-    aqemia_score = 'aqemia_score[protein=7l25]: aqemia_score (kcal/mol)'
+    _score = '_score[protein=XXXX]: _score (kcal/mol)'
 
     # Screenity properties
     charge_screenity = 'charge (screenity)'
