@@ -13,7 +13,6 @@
 
 * Some files generated were omitted for size reasons; docked results (`.sdf`), some logs (`maize_worfklow_docking.log`) and trained models (`.chkpt`).
 * Metrics to track the performance of the model can be found in `02_generation_analysis_and_metrics_ep4.ipynb`. As we've only run for 20 - 50 epochs, performance metrics don't change much (augNLL should trend toward smaller, less negative values as the model improves).
-* As we've only run for 20 - 50 epochs, performance metrics don't change much (augNLL should trend toward smaller, less negative values as the model improves).
 
 ## TODO
 
