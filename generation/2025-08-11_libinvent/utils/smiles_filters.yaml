@@ -1,0 +1,10 @@
+mol_wt:
+  lower_bond : 250
+  higher_bond : 700
+highest_nbr_contiguous_rotatable_bonds: 5
+nbr_rotatable_bond: 8
+nbr_hbond_donor: 5
+nbr_hbond_acceptor: 10
+largest_ring: 8
+nbr_stereocenter: 5
+is_zwitterion: False
