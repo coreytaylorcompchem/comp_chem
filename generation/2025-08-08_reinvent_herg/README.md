@@ -8,14 +8,15 @@
 * Docking with Gnina.
 * Scoring function contains physchem for training (QED, MW, etc.).
 * Diversity filter (MurckoScaffold).
-* Addition of a ML predictive model (hERG) to the scoring function (notebooks to develop a trained classification model can be found in this GH at [/comp_chem/ml/adme_models/herg](https://github.com/coreytaylorcompchem/comp_chem/tree/main/ml/adme_models/herg).
+* Addition of a ML predictive model (hERG) to the scoring function.
+    * Notebooks to develop a trained classification model can be found in this GH at [/comp_chem/ml/adme_models/herg](https://github.com/coreytaylorcompchem/comp_chem/tree/main/ml/adme_models/herg).
 
 ## Quick notes
 
 * Some files generated were omitted for size reasons; docked results (`.sdf`), some logs (`maize_worfklow_docking.log`) and trained models (`.chkpt`).
-* Metrics to track the performance of the model can be found in `02_generation_analysis_and_metrics_ep4.ipynb`. As we've only run for 20 - 50 epochs, performance metrics don't change much (augNLL should trend toward smaller, less negative values as the model improvesi).
+* Metrics to track the performance of the model can be found in `02_generation_analysis_and_metrics_ep4.ipynb`. As we've only run for 20 - 50 epochs, performance metrics don't change much (augNLL should trend toward smaller, less negative values as the model improves).
 * Addition of the hERG ML model (or any model) to the scoring function necessitates writing a component file to register and interact with the Reinvent workflow and make the prediction (`components/comp_herg.py`). You can set this up wherever you like but it's just easier to dump it in with all the other components where Reinvent is installed (usually something like `~/miniconda3/envs/reinvent4/lib/python3.10/site-packages/reinvent_plugins/components/`) 
-** To see all registered components and confirm that your model has been added, run `python reinvent_component_test.py` 
+    * To see all registered components and confirm that your model has been added, run `python reinvent_component_test.py` 
 
 ## TODO
 
