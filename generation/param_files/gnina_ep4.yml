@@ -109,7 +109,7 @@ parameters:
 
 # OPTIONAL: Number of MC chains for pose search
 - name: exhaustiveness
-  value: 8
+  value: 1 
   map:
   - dock: exhaustiveness
 
@@ -121,7 +121,7 @@ parameters:
 
 # OPTIONAL: Maximum number of poses to generate
 - name: n_poses
-  value: 5
+  value: 1
   map:
   - dock: n_poses
 
