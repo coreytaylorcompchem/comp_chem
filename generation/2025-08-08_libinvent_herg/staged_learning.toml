@@ -292,7 +292,7 @@ transform.k = 0.5
 [[stage.scoring.component]]
 [stage.scoring.component.herg]
 [[stage.scoring.component.herg.endpoint]]
-name = "herg active"
+name = "herg inactive"
 weight = 0.5
 transform.type = "reverse_sigmoid"
 transform.high = 1.0

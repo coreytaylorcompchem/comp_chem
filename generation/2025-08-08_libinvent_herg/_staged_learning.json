@@ -282,7 +282,7 @@
                         "herg": {
                             "endpoint": [
                                 {
-                                    "name": "herg active",
+                                    "name": "herg inactive",
                                     "weight": 0.5,
                                     "transform": {
                                         "type": "reverse_sigmoid",
