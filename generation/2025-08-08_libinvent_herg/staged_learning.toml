@@ -278,17 +278,6 @@ transform.high = 10
 transform.low = 0
 transform.k = 0.5
 
-
-[[stage.scoring.component]]
-[stage.scoring.component.HBondAcceptors]
-[[stage.scoring.component.HBondAcceptors.endpoint]]
-name = "Number of HB acceptors (Lipinski)"
-weight = 0
-transform.type = "reverse_sigmoid"
-transform.high = 10
-transform.low = 8
-transform.k = 0.5
-
 [[stage.scoring.component]]
 [stage.scoring.component.herg]
 [[stage.scoring.component.herg.endpoint]]

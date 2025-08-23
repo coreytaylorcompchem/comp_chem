@@ -263,22 +263,6 @@
                         }
                     },
                     {
-                        "HBondAcceptors": {
-                            "endpoint": [
-                                {
-                                    "name": "Number of HB acceptors (Lipinski)",
-                                    "weight": 0,
-                                    "transform": {
-                                        "type": "reverse_sigmoid",
-                                        "high": 10,
-                                        "low": 8,
-                                        "k": 0.5
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
                         "herg": {
                             "endpoint": [
                                 {
