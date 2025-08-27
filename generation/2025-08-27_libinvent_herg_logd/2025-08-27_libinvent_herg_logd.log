@@ -1,0 +1,477 @@
+22:44:26 <INFO> Started REINVENT 4.6.22 (C) AstraZeneca 2017, 2023 on 2025-08-27
+22:44:26 <INFO> Command line: /home/corey/miniconda3/envs/reinvent4/bin/reinvent -l 2025-08-27_libinvent_herg_logd.log staged_learning.toml
+22:44:26 <INFO> Reading run configuration from /home/corey/Documents/comp_chem/generation/2025-08-27_libinvent_herg_logd/staged_learning.toml using format toml
+22:44:26 <INFO> User corey on host thetinkerfactory
+22:44:26 <INFO> Python version 3.10.18
+22:44:26 <INFO> PyTorch version 2.7.1+cu128, git e2d141dbde55c2a4370fac5165b0561b6af4798b
+22:44:26 <INFO> PyTorch compiled with CUDA version 12.8
+22:44:26 <INFO> RDKit version 2025.03.3
+22:44:26 <INFO> Platform Linux-6.14.0-28-generic-x86_64-with-glibc2.41
+22:44:26 <INFO> CUDA driver version 570.153.02
+22:44:26 <INFO> Number of PyTorch CUDA devices 1
+22:44:26 <WARN> 'use_cuda' is deprecated, use 'device' instead
+22:44:26 <INFO> Using CUDA device:0 NVIDIA GeForce RTX 5070 Laptop GPU
+22:44:26 <INFO> GPU memory: 7325 MiB free, 7716 MiB total
+22:44:26 <INFO> Writing TensorBoard summary to /home/corey/Documents/comp_chem/generation/2025-08-27_libinvent_herg_logd/tb_logs
+22:44:26 <INFO> Writing JSON config file to /home/corey/Documents/comp_chem/generation/2025-08-27_libinvent_herg_logd/_staged_learning.json
+22:44:26 <INFO> Starting 1 stage of Reinforcement Learning
+22:44:26 <INFO> /home/corey/software/REINVENT4/priors/libinvent.prior has valid hash:
+{ 'comments': [],
+  'creation_date': 0,
+  'date_format': 'UNIX epoch',
+  'hash_id': '99944413c8f0b152c2bca0dca31aa6d3',
+  'hash_id_format': 'xxhash.xxh3_128_hex 3.4.1',
+  'model_id': '558e4fbd038c4b0ba67b03a025e657c4',
+  'model_id_format': 'uuid.uuid4 3.10.12',
+  'origina_data_source': 'ChEMBL 27',
+  'updates': []}
+22:44:26 <INFO> Number of network parameters: 23,686,692
+22:44:26 <INFO> Network architecture:
+Decorator(
+  (_encoder): Encoder(
+    (_embedding): Sequential(
+      (0): Embedding(38, 512)
+      (1): Dropout(p=0.2, inplace=False)
+    )
+    (_rnn): LSTM(512, 512, num_layers=3, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (_decoder): Decoder(
+    (_embedding): Sequential(
+      (0): Embedding(36, 512)
+      (1): Dropout(p=0.2, inplace=False)
+    )
+    (_rnn): LSTM(512, 512, num_layers=3, batch_first=True, dropout=0.2)
+    (_attention): AttentionLayer(
+      (_attention_linear): Sequential(
+        (0): Linear(in_features=1024, out_features=512, bias=True)
+        (1): Tanh()
+      )
+    )
+    (_linear): Linear(in_features=512, out_features=36, bias=True)
+  )
+)
+22:44:26 <INFO> /home/corey/software/REINVENT4/priors/libinvent.prior has valid hash:
+{ 'comments': [],
+  'creation_date': 0,
+  'date_format': 'UNIX epoch',
+  'hash_id': '99944413c8f0b152c2bca0dca31aa6d3',
+  'hash_id_format': 'xxhash.xxh3_128_hex 3.4.1',
+  'model_id': '558e4fbd038c4b0ba67b03a025e657c4',
+  'model_id_format': 'uuid.uuid4 3.10.12',
+  'origina_data_source': 'ChEMBL 27',
+  'updates': []}
+22:44:26 <INFO> Number of network parameters: 23,686,692
+22:44:26 <INFO> Network architecture:
+Decorator(
+  (_encoder): Encoder(
+    (_embedding): Sequential(
+      (0): Embedding(38, 512)
+      (1): Dropout(p=0.2, inplace=False)
+    )
+    (_rnn): LSTM(512, 512, num_layers=3, batch_first=True, dropout=0.2, bidirectional=True)
+  )
+  (_decoder): Decoder(
+    (_embedding): Sequential(
+      (0): Embedding(36, 512)
+      (1): Dropout(p=0.2, inplace=False)
+    )
+    (_rnn): LSTM(512, 512, num_layers=3, batch_first=True, dropout=0.2)
+    (_attention): AttentionLayer(
+      (_attention_linear): Sequential(
+        (0): Linear(in_features=1024, out_features=512, bias=True)
+        (1): Tanh()
+      )
+    )
+    (_linear): Linear(in_features=512, out_features=36, bias=True)
+  )
+)
+22:44:26 <INFO> Using generator Libinvent
+22:44:26 <INFO> Prior read from /home/corey/software/REINVENT4/priors/libinvent.prior
+22:44:26 <INFO> Agent read from /home/corey/software/REINVENT4/priors/libinvent.prior
+22:44:26 <INFO> Input molecules/fragments read from file scaffolds.smi
+22:44:26 <INFO> Using reward strategy dap
+22:44:26 <INFO> Using diversity filter IdenticalMurckoScaffold
+22:44:26 <INFO> Diversity filter memories are retained between stages
+22:44:27 <INFO> Registered scoring component ROCSSimilarity
+22:44:27 <INFO> Registered scoring component GroupCount
+22:44:27 <INFO> Registered scoring component FragmentQed
+22:44:27 <INFO> Registered scoring component FragmentSlogP
+22:44:27 <INFO> Registered scoring component FragmentMolecularWeight
+22:44:27 <INFO> Registered scoring component FragmentTPSA
+22:44:27 <INFO> Registered scoring component FragmentDistanceMatrix
+22:44:27 <INFO> Registered scoring component FragmentNumAtomStereoCenters
+22:44:27 <INFO> Registered scoring component FragmentHBondAcceptors
+22:44:27 <INFO> Registered scoring component FragmentHBondDonors
+22:44:27 <INFO> Registered scoring component FragmentNumRotBond
+22:44:27 <INFO> Registered scoring component FragmentCsp3
+22:44:27 <INFO> Registered scoring component Fragmentnumsp
+22:44:27 <INFO> Registered scoring component Fragmentnumsp2
+22:44:27 <INFO> Registered scoring component Fragmentnumsp3
+22:44:27 <INFO> Registered scoring component FragmentEffectiveLength
+22:44:27 <INFO> Registered scoring component FragmentGraphLength
+22:44:27 <INFO> Registered scoring component FragmentLengthRatio
+22:44:27 <INFO> Registered scoring component FragmentNumHeavyAtoms
+22:44:27 <INFO> Registered scoring component FragmentNumHeteroAtoms
+22:44:27 <INFO> Registered scoring component FragmentNumRings
+22:44:27 <INFO> Registered scoring component FragmentNumAromaticRings
+22:44:27 <INFO> Registered scoring component FragmentNumAliphaticRings
+22:44:27 <INFO> Registered scoring component FragmentSlogP
+22:44:27 <INFO> Registered scoring component MatchingSubstructure
+22:44:27 <INFO> Registered scoring component MolVolume
+22:44:27 <INFO> Registered scoring component Qed
+22:44:27 <INFO> Registered scoring component LargestRingSize
+22:44:27 <INFO> Registered scoring component MolecularWeight
+22:44:27 <INFO> Registered scoring component GraphLength
+22:44:27 <INFO> Registered scoring component NumAtomStereoCenters
+22:44:27 <INFO> Registered scoring component HBondAcceptors
+22:44:27 <INFO> Registered scoring component HBondDonors
+22:44:27 <INFO> Registered scoring component NumRotBond
+22:44:27 <INFO> Registered scoring component Csp3
+22:44:27 <INFO> Registered scoring component numsp
+22:44:27 <INFO> Registered scoring component numsp2
+22:44:27 <INFO> Registered scoring component numsp3
+22:44:27 <INFO> Registered scoring component NumHeavyAtoms
+22:44:27 <INFO> Registered scoring component NumHeteroAtoms
+22:44:27 <INFO> Registered scoring component NumRings
+22:44:27 <INFO> Registered scoring component NumAromaticRings
+22:44:27 <INFO> Registered scoring component NumAliphaticRings
+22:44:27 <INFO> Registered scoring component SlogP
+22:44:27 <INFO> Registered scoring component LargestRingSize
+22:44:27 <INFO> Registered scoring component PMI
+22:44:27 <INFO> Registered scoring component RDKitDescriptors
+22:44:27 <INFO> Registered scoring component TanimotoSimilarity
+22:44:27 <INFO> Registered scoring component TanimotoDistance
+22:44:27 <INFO> Registered scoring component TPSA
+22:44:27 <INFO> Registered scoring component SAScore
+22:44:27 <INFO> Registered scoring component Cazp
+22:44:27 <INFO> Registered scoring component ChemProp
+22:44:27 <INFO> Registered scoring component CustomAlerts
+22:44:27 <INFO> Registered scoring component DockStream
+22:44:27 <INFO> Registered scoring component ExternalProcess
+22:44:27 <INFO> Registered scoring component REST
+22:44:27 <INFO> Registered scoring component Herg
+22:44:27 <INFO> Registered scoring component Icolos
+22:44:27 <INFO> Registered scoring component LogD
+22:44:27 <INFO> Registered scoring component Maize
+22:44:27 <INFO> Registered scoring component MMP
+22:44:27 <INFO> Registered scoring component Qptuna
+22:44:27 <INFO> Registered scoring component ReactionFilter
+22:44:27 <INFO> Registered scoring component RingPrecedence
+22:44:27 <INFO> Creating scoring component QED
+22:44:27 <INFO> Creating scoring component Maize
+22:44:27 <INFO> Creating filter component custom_alerts
+22:44:27 <INFO> Creating scoring component MolecularWeight
+22:44:27 <INFO> Creating scoring component SlogP
+22:44:27 <INFO> Creating scoring component TPSA
+22:44:27 <INFO> Creating scoring component NumAtomStereoCenters
+22:44:27 <INFO> Creating scoring component HBondAcceptors
+22:44:27 <INFO> Creating scoring component HBondDonors
+22:44:27 <INFO> Creating scoring component NumRotBond
+22:44:27 <INFO> Creating scoring component NumHeavyAtoms
+22:44:27 <INFO> Creating scoring component MolVolume
+22:44:27 <INFO> Creating scoring component SAScore
+22:44:27 <INFO> Loading hERG GCN model from /home/corey/Documents/comp_chem/ml/adme_models/herg/herg_gnn.pt on cuda
+22:44:27 <INFO> Creating scoring component herg
+22:44:27 <INFO> Loading LogD GATv2 model from /home/corey/Documents/comp_chem/ml/adme_models/logd/logd_gat.pt on cuda
+22:44:27 <INFO> Creating scoring component logd
+22:44:27 <INFO> Writing tabular data for stage to staged_learning_1.csv
+22:44:27 <INFO> Starting stage 1 <<<
+22:44:27 <INFO> Current GPU memory usage: 795 MiB used, 6921 MiB free
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 | Score: 0.5462338328361511 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | Score: 0.6100519895553589 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | Score: 0.6741301417350769 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)C3CCCN3C)c12)c1ccc(C(C)(C)C)cc1 | Score: 0.8908308148384094 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | Score: 0.6820260882377625 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: COc1ccccc1-c1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | Score: 0.5502687096595764 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccccc4)cc3)c21 | Score: 0.5481240153312683 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCC(=O)N(C(=O)NC5CCOCC5)CC4)cc3)c21 | Score: 0.16409224271774292 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCCC4)cc3)c21 | Score: 0.6360143423080444 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccc(C(F)(F)F)c4)cc3)c21 | Score: 0.7142295837402344 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4c(C)n[nH]c4C)cc3)c21 | Score: 0.32968103885650635 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccncc4)cc3)c21 | Score: 0.3385186791419983 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCc3ccccc3)c12)c1ccc(C(C)(C)C#N)cc1 | Score: 0.9503759145736694 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cc5ccccc5cc4C)cc3)c21 | Score: 0.6908187866210938 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: COc1ccc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)c5ccccc5Cl)c34)cc2)cn1 | Score: 0.8971553444862366 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4cccnc4)c23)cc1 | Score: 0.622279942035675 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4ccccc4)c23)cc1 | Score: 0.7931444048881531 | Type: <class 'float'>
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 | LogD Prediction: 3.6959621906280518
+22:45:39 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | LogD Prediction: 4.155699253082275
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | LogD Prediction: 4.36128044128418
+22:45:39 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)C3CCCN3C)c12)c1ccc(C(C)(C)C)cc1 | LogD Prediction: 3.183867931365967
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | LogD Prediction: 4.1704325675964355
+22:45:39 <INFO> SMILES: COc1ccccc1-c1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | LogD Prediction: 4.235995769500732
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccccc4)cc3)c21 | LogD Prediction: 4.213979244232178
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCC(=O)N(C(=O)NC5CCOCC5)CC4)cc3)c21 | LogD Prediction: 3.3146445751190186
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCCC4)cc3)c21 | LogD Prediction: 3.5450408458709717
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccc(C(F)(F)F)c4)cc3)c21 | LogD Prediction: 4.716690540313721
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4c(C)n[nH]c4C)cc3)c21 | LogD Prediction: 3.82548451423645
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccncc4)cc3)c21 | LogD Prediction: 3.295877695083618
+22:45:39 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCc3ccccc3)c12)c1ccc(C(C)(C)C#N)cc1 | LogD Prediction: 4.309114456176758
+22:45:39 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cc5ccccc5cc4C)cc3)c21 | LogD Prediction: 4.710536479949951
+22:45:39 <INFO> SMILES: COc1ccc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)c5ccccc5Cl)c34)cc2)cn1 | LogD Prediction: 4.4767985343933105
+22:45:39 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4cccnc4)c23)cc1 | LogD Prediction: 3.4512815475463867
+22:45:39 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4ccccc4)c23)cc1 | LogD Prediction: 4.185138702392578
+22:45:39 <INFO> Score: 0.00 Agent NLL: 12.17 Valid: 100% Step: 1
+ | Agent Prior Target Score SMILES SMILES_state Input_Scaffold R-groups Scaffold QED QED (raw) gnina score gnina score (raw) MW MW (raw) SlogP (RDKit) SlogP (RDKit) (raw) TPSA TPSA (raw) Number of stereo centers Number of stereo centers (raw) Number of HB acceptors (Lipinski) Number of HB acceptors (Lipinski) (raw) Number of HB donors (Lipinski) Number of HB donors (Lipinski) (raw) Number of rotatable bonds Number of rotatable bonds (raw) Number of Heavy atoms Number of Heavy atoms (raw) Molecular Volume (RDKit) Molecular Volume (RDKit) (raw) SA score SA score (raw) herg inactive herg inactive (raw) LogD LogD (raw) Alerts Alerts (raw) matching_patterns (Alerts)
+ | 8.2616 8.9166 -8.9166 0.0000000 CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N)cc3)c21 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)C|*N O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+ | 6.0848 6.1554 0.0422 0.0123953 CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)C|C* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.7371775 0.7372 -8.4743900 -8.4744 0.9999985 354.8370 0.0000001 4.7542 1.0000000 51.1000 1.0000000 1.0000 1.0000000 3.0000 0.9467598 1.0000 0.9825279 3.0000 0.9918135 25.0000 0.9945430 314.3600 0.9289556 2.7671 0.0000238 0.5462 3.6959622 3.6960 1.0000000 1.0000 []
+ | 7.8866 8.6788 -6.3929 0.0045718 CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)NC|FC(F)(F)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.6229005 0.6229 -10.8909000 -10.8909 0.9991036 423.8220 0.0000000 4.9920 1.0000000 63.1300 1.0000000 1.0000 1.0000000 3.0000 0.5000000 2.0000 0.9825279 3.0000 0.9825279 29.0000 0.9828362 344.5280 0.9065567 3.0263 0.0000000 0.6101 4.1556993 4.1557 1.0000000 1.0000 []
+ | 6.8175 6.7488 -6.7488 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(C(C)(C)C)cc1 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)N|*C(C)(C)C O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+ | 11.7533 12.1284 -12.1284 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(CC(=O)O)cc1 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)N|C(*)C(O)=O O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]', '[NH2]', '[OH]']
+ | 9.5172 10.6971 -10.6971 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(-c2ccncc2)cc1 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)N|c1c(*)ccnc1 O=C(NCc1ccc(-c2ccncc2)cc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+ | 5.7367 5.6982 -5.6982 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)OC(C)(C)C)c12)c1ccc(C(F)(F)F)cc1 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)OC(C)(C)C|*C(F)(F)F O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 7.9976 8.0956 -8.0956 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)OC(C)(C)C)c12)c1ccc(N(C)C)cc1 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)OC(C)(C)C|*N(C)C O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 5.6237 5.2121 -5.2121 0.0000000 Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)OC(C)(C)C)c23)cc1 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)OC(C)(C)C|C* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 24.8645 24.3394 -24.3394 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)OC(C)(C)C)c12)c1ccc(CC2(C(=O)NO)CN3CCC2CC3)cc1 1 c1n([*])c2c(C(=O)NC(c3ccc([*])cc3)C)cc(Cl)cc2c1 *C(=O)OC(C)(C)C|C1(C*)(C(=O)NO)C2CCN(CC2)C1 O=C(NCc1ccc(CC2CN3CCC2CC3)cc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]', '[OH]']
+22:45:39 <WARN> reinvent_plugins.normalizers.rdkit_smiles: c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*]*c1nnc(CNC)n(CC(C)C)c1|CNC(=O)* could not be converted
+22:47:34 <WARN> Scoring function did not return result for SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(Cc4nc5ccc(Cl)cc5[nH]4)cc3)c21
+22:47:34 <WARN> [compute_transform] Missing SMILES in component results: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(Cc4nc5ccc(Cl)cc5[nH]4)cc3)c21
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)CCCN(C)C)c12)c1ccc(C(F)(F)F)cc1 | Score: 0.8605254888534546 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(C(F)(F)F)cc1 | Score: 0.6491992473602295 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)N(C)C)c23)cc1 | Score: 0.525425910949707 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)C(Cl)Cl)c23)cc1 | Score: 0.9356247782707214 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4ccc(COC(C)(C)C)cc4)c23)cc1 | Score: 0.8393111824989319 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCNCC4)cc3)c21 | Score: 0.5531352758407593 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(CC(C)(C)C)cc3)c21 | Score: 0.6919333338737488 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(C(C)(C)C)cc1 | Score: 0.8120287656784058 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(=O)N1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(Cc5cc[n+](C)cc5)c34)cc2)CC1 | Score: 0.9237293601036072 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)NC(C)C)c23)cc1 | Score: 0.731869637966156 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 | Score: 0.597489595413208 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: COc1cccc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(C)cc4)c32)c1C | Score: 0.7928022146224976 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 | Score: 0.7687922716140747 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4ccccc4C)c23)cc1 | Score: 0.824059784412384 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccc(N(C)C)cc3)c12)c1ccc(N2CCN(C)CC2)cc1 | Score: 0.42369335889816284 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: Cc1cccc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(N5CC[S+]([O-])CC5)cc4)c32)c1 | Score: 0.5671534538269043 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CCN(CC)C(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | Score: 0.5455402135848999 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccccc3)c12)c1ccc(N(C)C)cc1 | Score: 0.24081739783287048 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N(C)C)cc3)c21 | Score: 0.06401855498552322 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccc(Cl)c(Cl)c3)c12)c1ccc(C(C)(C)C(F)(F)F)cc1 | Score: 0.9009444117546082 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(C(F)(F)F)cc1 | Score: 0.8071497678756714 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4c(-c5cnc[nH]5)ccc5[nH]ccc45)cc3)c21 | Score: 0.43723198771476746 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C=O)c12)c1ccc(-c2cnn(C)c2)cc1 | Score: 0.2595752477645874 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C=O)c12)c1ccc(-c2ccccc2)cc1 | Score: 0.6266593933105469 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(Cc4nc5ccc(Cl)cc5[nH]4)cc3)c21 | Score: 0.6195458769798279 | Type: <class 'float'>
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)CCCN(C)C)c12)c1ccc(C(F)(F)F)cc1 | LogD Prediction: 3.229950428009033
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(C(F)(F)F)cc1 | LogD Prediction: 4.083681106567383
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)N(C)C)c23)cc1 | LogD Prediction: 3.475865125656128
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)C(Cl)Cl)c23)cc1 | LogD Prediction: 4.094933032989502
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4ccc(COC(C)(C)C)cc4)c23)cc1 | LogD Prediction: 4.528337478637695
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCNCC4)cc3)c21 | LogD Prediction: 2.492769241333008
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(CC(C)(C)C)cc3)c21 | LogD Prediction: 4.324080944061279
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(C(C)(C)C)cc1 | LogD Prediction: 4.395171642303467
+22:47:36 <INFO> SMILES: CC(=O)N1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(Cc5cc[n+](C)cc5)c34)cc2)CC1 | LogD Prediction: 1.227225661277771
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)NC(C)C)c23)cc1 | LogD Prediction: 3.669706106185913
+22:47:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 | LogD Prediction: 3.5372533798217773
+22:47:36 <INFO> SMILES: COc1cccc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(C)cc4)c32)c1C | LogD Prediction: 4.407870769500732
+22:47:36 <INFO> SMILES: CCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 | LogD Prediction: 3.701873779296875
+22:47:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4ccccc4C)c23)cc1 | LogD Prediction: 4.386113166809082
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccc(N(C)C)cc3)c12)c1ccc(N2CCN(C)CC2)cc1 | LogD Prediction: 3.224647283554077
+22:47:36 <INFO> SMILES: Cc1cccc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(N5CC[S+]([O-])CC5)cc4)c32)c1 | LogD Prediction: 3.7173829078674316
+22:47:36 <INFO> SMILES: CCN(CC)C(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | LogD Prediction: 4.305897235870361
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccccc3)c12)c1ccc(N(C)C)cc1 | LogD Prediction: 3.769343852996826
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N(C)C)cc3)c21 | LogD Prediction: 3.4139606952667236
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccc(Cl)c(Cl)c3)c12)c1ccc(C(C)(C)C(F)(F)F)cc1 | LogD Prediction: 5.088800430297852
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(C(F)(F)F)cc1 | LogD Prediction: 4.5151214599609375
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4c(-c5cnc[nH]5)ccc5[nH]ccc45)cc3)c21 | LogD Prediction: 3.56083607673645
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C=O)c12)c1ccc(-c2cnn(C)c2)cc1 | LogD Prediction: 3.181997060775757
+22:47:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C=O)c12)c1ccc(-c2ccccc2)cc1 | LogD Prediction: 3.967344045639038
+22:47:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(Cc4nc5ccc(Cl)cc5[nH]4)cc3)c21 | LogD Prediction: 4.2200422286987305
+22:47:36 <WARN> [csv_summmary] Missing SMILES in component results: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(Cc4nc5ccc(Cl)cc5[nH]4)cc3)c21. Filling zero scores.
+22:47:36 <INFO> Score: 0.00 Agent NLL: 13.66 Valid:  99% Step: 2
+ | Agent Prior Target Score SMILES SMILES_state Input_Scaffold R-groups Scaffold QED QED (raw) gnina score gnina score (raw) MW MW (raw) SlogP (RDKit) SlogP (RDKit) (raw) TPSA TPSA (raw) Number of stereo centers Number of stereo centers (raw) Number of HB acceptors (Lipinski) Number of HB acceptors (Lipinski) (raw) Number of HB donors (Lipinski) Number of HB donors (Lipinski) (raw) Number of rotatable bonds Number of rotatable bonds (raw) Number of Heavy atoms Number of Heavy atoms (raw) Molecular Volume (RDKit) Molecular Volume (RDKit) (raw) SA score SA score (raw) herg inactive herg inactive (raw) LogD LogD (raw) Alerts Alerts (raw) matching_patterns (Alerts)
+ | 18.0005 19.0907 -19.0907 0.0000000 COC(=O)C(C)c1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)OCc4ccccc4)c23)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(C(=O)OC)C|C(OC(*)=O)c1ccccc1 O=C(NCc1ccccc1)c1cccc2ccn(C(=O)OCc3ccccc3)c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 8.3958 6.6379 -6.6379 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)OC(C)(C)C)c12)c1ccc(C(C)(C)C)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(C)(C)C|C(*)(=O)OC(C)(C)C O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 9.1659 10.1398 -10.1398 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)C(C)(C)N)c12)c1ccc(C(C)(C)C)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(C)(C)C|CC(N)(C)C(*)=O O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+ | 9.0753 8.3573 -8.3573 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(C(C)(C)C)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(C)(C)C|NC(=O)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+ | 7.7203 9.0289 -9.0289 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(C(F)(F)F)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(F)(F)F|*C(=O)N O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+ | 7.3116 6.3245 -6.3245 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)OC(C)(C)C)c12)c1ccc(C(F)(F)F)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(F)(F)F|*C(=O)OC(C)(C)C O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 17.9911 18.3546 -16.8653 0.0029785 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)CCCN(C)C)c12)c1ccc(C(F)(F)F)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(F)(F)F|C(N(C)C)CCN(C)C(*)=O O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.4480685 0.4481 0.0000000 0.0000 0.3044173 508.9720 0.0000000 5.6561 1.0000000 57.5800 1.0000000 1.0000 1.0000000 4.0000 0.9467598 1.0000 0.8490205 7.0000 0.9467598 35.0000 0.6069289 438.6800 0.8844696 3.2320 0.0000000 0.8605 3.2299504 3.2300 1.0000000 1.0000 []
+ | 11.8391 10.5572 -10.5572 0.0000000 CCOC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(F)(F)F|C(OC(=O)*)C O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 8.0495 7.3633 -5.0472 0.0046322 CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(F)(F)F|CC(*)=O O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.6248520 0.6249 0.0000000 0.0000 0.9997750 408.8070 0.0000000 5.4646 1.0000000 51.1000 1.0000000 1.0000 1.0000000 3.0000 0.9467598 1.0000 0.9825279 3.0000 0.9855343 28.0000 0.9893403 331.9440 0.9169239 2.9143 0.0000000 0.6741 4.3612804 4.3613 1.0000000 1.0000 []
+ | 7.3078 8.7278 -8.7278 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(C(F)(F)F)cc1 2 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(cc(Cl)c1)ccn2[*] *C(F)(F)F|NC(=O)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+22:47:36 <WARN> [tensorboard] Missing SMILES in component results: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(Cc4nc5ccc(Cl)cc5[nH]4)cc3)c21. Filling zeros.
+22:47:37 <WARN> reinvent_plugins.normalizers.rdkit_smiles: c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1*C(C)(C)C|*C(N(CC)[N]nc1ccccc1)=O could not be converted
+22:47:37 <WARN> reinvent_plugins.normalizers.rdkit_smiles: c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1Clc1c(=O)oc(*)n1C|CC(=O)* could not be converted
+22:49:15 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C#N)cc3)c21 | Score: 0.9123072028160095 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccc(Cl)cc3)c12)c1ccc(C(C)(C)C#N)cc1 | Score: 0.967081606388092 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CCc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | Score: 0.5049333572387695 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)NCc4ccccc4)c23)cc1 | Score: 0.7999176979064941 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCCN(C)CC4)cc3)c21 | Score: 0.7228231430053711 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | Score: 0.7136514782905579 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(C)NC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | Score: 0.8094803094863892 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)Nc4cc(C(C)(C)C)nn4C)c23)cc1 | Score: 0.6146270632743835 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)NCc4cccc(Cl)c4)c23)cc1 | Score: 0.8438944816589355 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C4CC4)cc3)c21 | Score: 0.4705694317817688 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cnn(C5CCCCC5)c4)cc3)c21 | Score: 0.5596272945404053 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCOCC4)cc3)c21 | Score: 0.28386327624320984 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(Cc3cccc(Cl)c3F)c12)c1ccc(N2CCOCC2)cc1 | Score: 0.7548818588256836 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4nc5c([nH]4)CCN(C)CC5)cc3)c21 | Score: 0.443376362323761 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccccc3Cl)c12)c1ccc(-c2ccccc2)cc1 | Score: 0.8199789524078369 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccnc4)cc3)c21 | Score: 0.39116978645324707 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C(C)C)C(C)C)c12)c1ccc(Cn2ncc3nccnc32)cc1 | Score: 0.5085890293121338 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C=O)c12)c1ccc(-c2cn[nH]c2)cc1 | Score: 0.5152601003646851 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(-c2cn[nH]c2)cc1 | Score: 0.4247278571128845 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(-c2cccnc2)cc1 | Score: 0.5886502861976624 | Type: <class 'float'>
+22:49:15 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C#N)cc3)c21 | LogD Prediction: 3.7117834091186523
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccc(Cl)cc3)c12)c1ccc(C(C)(C)C#N)cc1 | LogD Prediction: 4.4306817054748535
+22:49:15 <INFO> SMILES: CCc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | LogD Prediction: 3.86108136177063
+22:49:15 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)NCc4ccccc4)c23)cc1 | LogD Prediction: 4.275932312011719
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCCN(C)CC4)cc3)c21 | LogD Prediction: 2.8156635761260986
+22:49:15 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | LogD Prediction: 4.090298652648926
+22:49:15 <INFO> SMILES: CC(C)NC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C)cc3)c21 | LogD Prediction: 4.220616340637207
+22:49:15 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)Nc4cc(C(C)(C)C)nn4C)c23)cc1 | LogD Prediction: 4.3765645027160645
+22:49:15 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)NCc4cccc(Cl)c4)c23)cc1 | LogD Prediction: 4.513154983520508
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C4CC4)cc3)c21 | LogD Prediction: 3.901789665222168
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cnn(C5CCCCC5)c4)cc3)c21 | LogD Prediction: 4.16107177734375
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCOCC4)cc3)c21 | LogD Prediction: 3.447639226913452
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(Cc3cccc(Cl)c3F)c12)c1ccc(N2CCOCC2)cc1 | LogD Prediction: 3.77382755279541
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4nc5c([nH]4)CCN(C)CC5)cc3)c21 | LogD Prediction: 2.872645139694214
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccccc3Cl)c12)c1ccc(-c2ccccc2)cc1 | LogD Prediction: 4.5593180656433105
+22:49:15 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccnc4)cc3)c21 | LogD Prediction: 3.461975574493408
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C(C)C)C(C)C)c12)c1ccc(Cn2ncc3nccnc32)cc1 | LogD Prediction: 3.738610029220581
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C=O)c12)c1ccc(-c2cn[nH]c2)cc1 | LogD Prediction: 2.9875504970550537
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(-c2cn[nH]c2)cc1 | LogD Prediction: 3.0640981197357178
+22:49:15 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(-c2cccnc2)cc1 | LogD Prediction: 3.7092344760894775
+22:49:15 <INFO> Score: 0.00 Agent NLL: 13.19 Valid:  98% Step: 3
+ | Agent Prior Target Score SMILES SMILES_state Input_Scaffold R-groups Scaffold QED QED (raw) gnina score gnina score (raw) MW MW (raw) SlogP (RDKit) SlogP (RDKit) (raw) TPSA TPSA (raw) Number of stereo centers Number of stereo centers (raw) Number of HB acceptors (Lipinski) Number of HB acceptors (Lipinski) (raw) Number of HB donors (Lipinski) Number of HB donors (Lipinski) (raw) Number of rotatable bonds Number of rotatable bonds (raw) Number of Heavy atoms Number of Heavy atoms (raw) Molecular Volume (RDKit) Molecular Volume (RDKit) (raw) SA score SA score (raw) herg inactive herg inactive (raw) LogD LogD (raw) Alerts Alerts (raw) matching_patterns (Alerts)
+ | 14.6380 18.4138 -16.2237 0.0043801 CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)(C)C#N)cc3)c21 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C(C)(C)C#N|O=C(NCC)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.5783189 0.5783 -5.4391000 -5.4391 0.9970049 436.9430 0.0000000 5.1645 1.0000000 86.9200 1.0000000 1.0000 1.0000000 4.0000 0.5000000 2.0000 0.9467598 5.0000 0.9745624 31.0000 0.8980824 393.2960 0.8860096 3.2189 0.0000000 0.9123 3.7117834 3.7118 1.0000000 1.0000 []
+ | 15.4983 18.6417 -17.0112 0.0032611 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3ccc(Cl)cc3)c12)c1ccc(C(C)(C)C#N)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C(C)(C)C#N|c1cc(C(=O)*)ccc1Cl O=C(NCc1ccccc1)c1cccc2ccn(C(=O)c3ccccc3)c12 0.3203648 0.3204 -6.1607000 -6.1607 0.3996749 504.4170 0.0000000 6.9288 1.0000000 74.8900 1.0000000 1.0000 1.0000000 4.0000 0.9467598 1.0000 0.9467598 5.0000 0.9467598 35.0000 0.6365210 435.4000 0.8995590 3.0958 0.0000000 0.9671 4.4306817 4.4307 1.0000000 1.0000 []
+ | 29.1645 27.8198 -27.8198 0.0000000 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1*C(C)(C)C|*C(N(CC)[N]nc1ccccc1)=O 0 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C(C)(C)C|*C(N(CC)[N]nc1ccccc1)=O -- 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 None
+ | 8.1178 6.4772 -6.4772 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)OC(C)(C)C)c12)c1ccc(C(C)(C)C)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C(C)(C)C|C(=O)(OC(C)(C)C)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 7.4468 7.6491 -5.3330 0.0046322 CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C(F)(F)F|O=C(C)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.6248520 0.6249 -10.5477300 -10.5477 0.9997750 408.8070 0.0000000 5.4646 1.0000000 51.1000 1.0000000 1.0000 1.0000000 3.0000 0.9467598 1.0000 0.9825279 3.0000 0.9855343 28.0000 0.9893403 331.9440 0.9169239 2.9143 0.0000000 0.6741 4.3612804 4.3613 1.0000000 1.0000 []
+ | 10.0885 9.7628 -9.7628 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)OCc3ccccc3)c12)c1ccc(C(F)(F)F)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C(F)(F)F|c1cccc(COC(=O)*)c1 O=C(NCc1ccccc1)c1cccc2ccn(C(=O)OCc3ccccc3)c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 12.1095 12.0673 -12.0673 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(C2CC2)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C1CC1|O=C(N)* O=C(NCc1ccc(C2CC2)cc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['[NH2]']
+ | 11.9159 12.9258 -12.9258 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(N)=O)c12)c1ccc(CC(=O)O)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *CC(=O)O|*C(=O)N O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]', '[NH2]', '[OH]']
+ | 10.1343 10.6699 9.6225 0.0405847 CCc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *CC|CC(=O)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.7034061 0.7034 -8.6761700 -8.6762 0.9999943 368.8640 0.0000000 5.0082 1.0000000 51.1000 1.0000000 1.0000 1.0000000 3.0000 0.9467598 1.0000 0.9693466 4.0000 0.9900990 26.0000 0.9899840 330.3040 0.9264383 2.7997 0.2430652 0.5049 3.8610814 3.8611 1.0000000 1.0000 []
+ | 5.7740 6.2522 -0.0546 0.0123953 CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C)cc3)c21 1 c1(C(NC(c2ccc([*])cc2)C)=O)c2c(ccn2[*])cc(Cl)c1 *C|*C(=O)C O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.7371775 0.7372 -8.4743900 -8.4744 0.9999985 354.8370 0.0000001 4.7542 1.0000000 51.1000 1.0000000 1.0000 1.0000000 3.0000 0.9467598 1.0000 0.9825279 3.0000 0.9918135 25.0000 0.9945430 314.3600 0.9289556 2.7671 0.0000238 0.5462 3.6959622 3.6960 1.0000000 1.0000 []
+22:49:16 <WARN> reinvent_plugins.normalizers.rdkit_smiles: n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12C(C)(*)=O|C(C)(C#Nc1cccc(*)n1)(C)O could not be converted
+22:49:16 <WARN> reinvent_plugins.normalizers.rdkit_smiles: n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12CC(=O)*|c1(C#N)c(*)c(Cl)c(-c2nn(C)nn2)cn1C could not be converted
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccc(N5CCN(C)CC5)n4)cc3)c21 | Score: 0.6333886384963989 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)c3ccccc3)c12)c1ccc(N2CCOCC2)cc1 | Score: 0.5080677270889282 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC3CC3C)c12)c1ccc(N2CCC3(C2)NCCN(C)C3=O)cc1 | Score: 0.4011392593383789 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC3CCCCCC3)c12)c1ccc(C(C)(C)C)cc1 | Score: 0.834475040435791 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCC34CC5CC(CC(C5)C3)C4)c12)c1ccc(N2CCCOCC2)cc1 | Score: 0.7490503191947937 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | Score: 0.7067026495933533 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccc5nccnc5c4)cc3)c21 | Score: 0.5205548405647278 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccc(OC5CCN(C)CC5)nc4)cc3)c21 | Score: 0.7320166826248169 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCN(CC)C1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)NCc5ccccc5)c34)cc2)C1 | Score: 0.9269586801528931 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCc3ccccc3)c12)c1ccc(-c2ccc(=O)n(C(F)F)c2)cc1 | Score: 0.3621028661727905 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: COc1nc(C)c(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)nc1C | Score: 0.6586934328079224 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCN(C)CC4)cc3)c21 | Score: 0.6555917263031006 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4c[nH]c5ncc(-c6nccs6)cc5c4=O)cc3)c21 | Score: 0.1398693025112152 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccc(OCCN5CCOCC5)n4)cc3)c21 | Score: 0.6447493433952332 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccnc4C#N)cc3)c21 | Score: 0.37104153633117676 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cncc(OC)c4)cc3)c21 | Score: 0.4618423581123352 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCCCN(C)C)c12)c1ccc(CCN2CCCCC2)cc1 | Score: 0.8997206091880798 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)N1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C=O)c34)cc2)CC1 | Score: 0.4464719593524933 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(-c2cccc(C(=O)N(C)C)c2)cc1 | Score: 0.3950735330581665 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(N2CCOCC2)cc1 | Score: 0.4830636978149414 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: Cc1cc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)C5CCCCN5)c34)cc2)nn1C1CCCN(C)C1=O | Score: 0.17243552207946777 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(CC(C)C)cc3)c21 | Score: 0.8061249256134033 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: Cc1cc(C)cc(CNC(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(N5CCOCC5)cc4)c32)c1 | Score: 0.6774566173553467 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cncnc4)cc3)c21 | Score: 0.3851221799850464 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCOc1cc(Cl)ncc1-c1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | Score: 0.3908788859844208 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)N1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)NC(C)(C)C)c34)cc2)CC1 | Score: 0.562858521938324 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCN(CC)C(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCOCC4)cc3)c21 | Score: 0.218740314245224 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(CCN(C)C)Cc3ccccc3)c12)c1ccc(N2CCOCC2)cc1 | Score: 0.6821207404136658 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4cn(C5CCOCC5)c(-c5cccnc5)n4)c23)cc1 | Score: 0.6023595929145813 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N3CCCNCC3)c12)c1ccc(-c2nccn2C)cc1 | Score: 0.28257259726524353 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N3CCN(C)CC3)c12)c1ccc(C(F)(F)F)cc1 | Score: 0.6574451327323914 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCNC(=O)CC4)cc3)c21 | Score: 0.03442972153425217 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: COc1nccc(-c2ccc(C#N)cc2)c1-c1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | Score: 0.7400951981544495 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCN1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)CC1 | Score: 0.722109317779541 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCN1CC(C)OC(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)C1 | Score: 0.43323373794555664 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: COc1ccc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)c2cccnc12 | Score: 0.5131257772445679 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)N1CCC(NC(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(C(C)(C)C)cc4)c32)CC1 | Score: 0.6698835492134094 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(-c2cnn(C)c2)cc1 | Score: 0.39731478691101074 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: COc1cc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)N(C)C)c34)cc2)n(C)n1 | Score: 0.4449385404586792 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(N2CCN(C)CC2)cc1 | Score: 0.6335501074790955 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4[nH]cnc4C#N)cc3)c21 | Score: 0.2843876779079437 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: COc1cccc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(N5CCOCC5)cc4)c32)c1OC | Score: 0.5056862235069275 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)C#N)cc3)c21 | Score: 0.4703395664691925 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCN(C)CC4)cc3)c21 | Score: 0.5970311164855957 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCc5cccnc5C4)cc3)c21 | Score: 0.28619611263275146 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(C2CCN(C)C2=O)cc1 | Score: 0.037232380360364914 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N3CCOCC3)c12)c1ccc(-c2cncc(OC(F)F)c2)cc1 | Score: 0.3129890561103821 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)CN3CCOCC3)c12)c1ccc(-c2c[nH]c(=O)c(C#N)c2)cc1 | Score: 0.4129631519317627 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(N(C)C)cc1 | Score: 0.07158848643302917 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: COc1c(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)N(C)C)c34)cc2)ccc2c1CCC2=O | Score: 0.49370598793029785 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: Cc1[nH]c(=O)c(Cc2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)N(C)C)c34)cc2)cc1-c1cccnc1 | Score: 0.2915073037147522 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CCN(CC)CCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N(C)C)cc3)c21 | Score: 0.5558120012283325 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: COCCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | Score: 0.8848956227302551 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: Cc1cc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(-c5cnn(C)c5)cc4)c32)c(C)o1 | Score: 0.8788564205169678 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(CC(=O)NC(C)(C)C)cc3)c21 | Score: 0.41819512844085693 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4nn(C)c5c(N6CC(C)OC(C)C6)cccc45)cc3)c21 | Score: 0.1288372427225113 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CNC(=O)c1c(-c2ccc(-c3ccc(C(C)NC(=O)c4cc(Cl)cc5ccn(C(=O)c6ccccc6)c45)cc3)cn2)cnn1C | Score: 0.24617412686347961 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3conn3)c12)c1ccc(CCN(C)C)cc1 | Score: 0.6666871309280396 | Type: <class 'float'>
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccc(N5CCN(C)CC5)n4)cc3)c21 | LogD Prediction: 3.543565034866333
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)c3ccccc3)c12)c1ccc(N2CCOCC2)cc1 | LogD Prediction: 3.811372995376587
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC3CC3C)c12)c1ccc(N2CCC3(C2)NCCN(C)C3=O)cc1 | LogD Prediction: 2.7853286266326904
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC3CCCCCC3)c12)c1ccc(C(C)(C)C)cc1 | LogD Prediction: 4.849121570587158
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCC34CC5CC(CC(C5)C3)C4)c12)c1ccc(N2CCCOCC2)cc1 | LogD Prediction: 4.214788436889648
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | LogD Prediction: 4.239191055297852
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccc5nccnc5c4)cc3)c21 | LogD Prediction: 3.4708549976348877
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccc(OC5CCN(C)CC5)nc4)cc3)c21 | LogD Prediction: 3.2153286933898926
+22:55:36 <INFO> SMILES: CCN(CC)C1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)NCc5ccccc5)c34)cc2)C1 | LogD Prediction: 3.2769501209259033
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCc3ccccc3)c12)c1ccc(-c2ccc(=O)n(C(F)F)c2)cc1 | LogD Prediction: 4.34192419052124
+22:55:36 <INFO> SMILES: COc1nc(C)c(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)nc1C | LogD Prediction: 4.109436988830566
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCN(C)CC4)cc3)c21 | LogD Prediction: 3.059730291366577
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4c[nH]c5ncc(-c6nccs6)cc5c4=O)cc3)c21 | LogD Prediction: 3.8485143184661865
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccc(OCCN5CCOCC5)n4)cc3)c21 | LogD Prediction: 3.442690372467041
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccnc4C#N)cc3)c21 | LogD Prediction: 3.869356393814087
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cncc(OC)c4)cc3)c21 | LogD Prediction: 3.6330254077911377
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCCCN(C)C)c12)c1ccc(CCN2CCCCC2)cc1 | LogD Prediction: 2.118330478668213
+22:55:36 <INFO> SMILES: CC(=O)N1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C=O)c34)cc2)CC1 | LogD Prediction: 2.8121531009674072
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(-c2cccc(C(=O)N(C)C)c2)cc1 | LogD Prediction: 3.686903953552246
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(N2CCOCC2)cc1 | LogD Prediction: 3.672940969467163
+22:55:36 <INFO> SMILES: Cc1cc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)C5CCCCN5)c34)cc2)nn1C1CCCN(C)C1=O | LogD Prediction: 2.7569515705108643
+22:55:36 <INFO> SMILES: CCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(CC(C)C)cc3)c21 | LogD Prediction: 4.2306718826293945
+22:55:36 <INFO> SMILES: Cc1cc(C)cc(CNC(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(N5CCOCC5)cc4)c32)c1 | LogD Prediction: 4.3012471199035645
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cncnc4)cc3)c21 | LogD Prediction: 3.2267796993255615
+22:55:36 <INFO> SMILES: CCOc1cc(Cl)ncc1-c1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | LogD Prediction: 4.411306381225586
+22:55:36 <INFO> SMILES: CC(=O)N1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)NC(C)(C)C)c34)cc2)CC1 | LogD Prediction: 3.373116970062256
+22:55:36 <INFO> SMILES: CCN(CC)C(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCOCC4)cc3)c21 | LogD Prediction: 3.6281440258026123
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(CCN(C)C)Cc3ccccc3)c12)c1ccc(N2CCOCC2)cc1 | LogD Prediction: 3.342902421951294
+22:55:36 <INFO> SMILES: Cc1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(=O)c4cn(C5CCOCC5)c(-c5cccnc5)n4)c23)cc1 | LogD Prediction: 3.595353603363037
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N3CCCNCC3)c12)c1ccc(-c2nccn2C)cc1 | LogD Prediction: 1.8720999956130981
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N3CCN(C)CC3)c12)c1ccc(C(F)(F)F)cc1 | LogD Prediction: 3.296332836151123
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCNC(=O)CC4)cc3)c21 | LogD Prediction: 2.8852713108062744
+22:55:36 <INFO> SMILES: COc1nccc(-c2ccc(C#N)cc2)c1-c1ccc(C(C)NC(=O)c2cc(Cl)cc3ccn(C(C)=O)c23)cc1 | LogD Prediction: 4.342119216918945
+22:55:36 <INFO> SMILES: CCN1CCN(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)CC1 | LogD Prediction: 2.9651787281036377
+22:55:36 <INFO> SMILES: CCN1CC(C)OC(c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)C1 | LogD Prediction: 3.0243287086486816
+22:55:36 <INFO> SMILES: COc1ccc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(C)=O)c34)cc2)c2cccnc12 | LogD Prediction: 3.9477548599243164
+22:55:36 <INFO> SMILES: CC(=O)N1CCC(NC(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(C(C)(C)C)cc4)c32)CC1 | LogD Prediction: 3.8260257244110107
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC(C)(C)C)c12)c1ccc(-c2cnn(C)c2)cc1 | LogD Prediction: 3.6967613697052
+22:55:36 <INFO> SMILES: COc1cc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)N(C)C)c34)cc2)n(C)n1 | LogD Prediction: 3.5780928134918213
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(N2CCN(C)CC2)cc1 | LogD Prediction: 2.8652966022491455
+22:55:36 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4[nH]cnc4C#N)cc3)c21 | LogD Prediction: 3.284860849380493
+22:55:36 <INFO> SMILES: COc1cccc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(N5CCOCC5)cc4)c32)c1OC | LogD Prediction: 3.7976362705230713
+22:55:36 <INFO> SMILES: CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(C)C#N)cc3)c21 | LogD Prediction: 3.5510005950927734
+22:55:36 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCN(C)CC4)cc3)c21 | LogD Prediction: 2.9436395168304443
+22:55:36 <INFO> SMILES: CNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N4CCc5cccnc5C4)cc3)c21 | LogD Prediction: 3.3895070552825928
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(C2CCN(C)C2=O)cc1 | LogD Prediction: 3.0762150287628174
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N3CCOCC3)c12)c1ccc(-c2cncc(OC(F)F)c2)cc1 | LogD Prediction: 3.567270517349243
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)CN3CCOCC3)c12)c1ccc(-c2c[nH]c(=O)c(C#N)c2)cc1 | LogD Prediction: 2.843395948410034
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(N(C)C)cc1 | LogD Prediction: 3.224454641342163
+22:55:36 <INFO> SMILES: COc1c(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)N(C)C)c34)cc2)ccc2c1CCC2=O | LogD Prediction: 4.151711463928223
+22:55:36 <INFO> SMILES: Cc1[nH]c(=O)c(Cc2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)N(C)C)c34)cc2)cc1-c1cccnc1 | LogD Prediction: 3.5954749584198
+22:55:36 <INFO> SMILES: CCN(CC)CCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(N(C)C)cc3)c21 | LogD Prediction: 2.353684186935425
+22:55:36 <INFO> SMILES: COCCCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 | LogD Prediction: 4.063895225524902
+22:55:36 <INFO> SMILES: Cc1cc(C(=O)n2ccc3cc(Cl)cc(C(=O)NC(C)c4ccc(-c5cnn(C)c5)cc4)c32)c(C)o1 | LogD Prediction: 3.8825619220733643
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(CC(=O)NC(C)(C)C)cc3)c21 | LogD Prediction: 3.8552510738372803
+22:55:36 <INFO> SMILES: CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4nn(C)c5c(N6CC(C)OC(C)C6)cccc45)cc3)c21 | LogD Prediction: 4.276492118835449
+22:55:36 <INFO> SMILES: CNC(=O)c1c(-c2ccc(-c3ccc(C(C)NC(=O)c4cc(Cl)cc5ccn(C(=O)c6ccccc6)c45)cc3)cn2)cnn1C | LogD Prediction: 3.902092218399048
+22:55:36 <INFO> SMILES: CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)c3conn3)c12)c1ccc(CCN(C)C)cc1 | LogD Prediction: 2.7807724475860596
+22:55:36 <INFO> Score: 0.01 Agent NLL: 18.26 Valid:  98% Step: 4
+ | Agent Prior Target Score SMILES SMILES_state Input_Scaffold R-groups Scaffold QED QED (raw) gnina score gnina score (raw) MW MW (raw) SlogP (RDKit) SlogP (RDKit) (raw) TPSA TPSA (raw) Number of stereo centers Number of stereo centers (raw) Number of HB acceptors (Lipinski) Number of HB acceptors (Lipinski) (raw) Number of HB donors (Lipinski) Number of HB donors (Lipinski) (raw) Number of rotatable bonds Number of rotatable bonds (raw) Number of Heavy atoms Number of Heavy atoms (raw) Molecular Volume (RDKit) Molecular Volume (RDKit) (raw) SA score SA score (raw) herg inactive herg inactive (raw) LogD LogD (raw) Alerts Alerts (raw) matching_patterns (Alerts)
+ | 20.2123 21.0698 -19.7577 0.0026241 CC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4cccc(N5CCN(C)CC5)n4)cc3)c21 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)C|c1(N2CCN(C)CC2)cccc(*)n1 O=C(NCc1ccc(-c2cccc(N3CCNCC3)n2)cc1)c1cccc2cc[nH]c12 0.3923985 0.3924 -9.4183200 -9.4183 0.1857603 516.0450 0.0000000 5.2596 1.0000000 70.4700 1.0000000 1.0000 0.9999999 6.0000 0.9467598 1.0000 0.9467598 5.0000 0.9237530 37.0000 0.3944636 461.1680 0.8974468 3.1159 0.0000000 0.6334 3.5435650 3.5436 1.0000000 1.0000 []
+ | 13.0037 17.9566 -17.9565 0.0000000 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)C)c12)c1ccc(-c2ccncc2C(=O)O)cc1 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)N(C)C|OC(c1cnccc1*)=O O=C(NCc1ccc(-c2ccncc2)cc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]', '[OH]']
+ | 14.1891 16.8230 -6.1848 0.0212765 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)N(C)c3ccccc3)c12)c1ccc(N2CCOCC2)cc1 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)N(c1ccccc1)C|C1OCCN(*)C1 O=C(NCc1ccc(N2CCOCC2)cc1)c1cccc2ccn(C(=O)Nc3ccccc3)c12 0.3678395 0.3678 -6.1933600 -6.1934 0.1724406 517.0290 0.0000000 5.7268 1.0000000 66.8100 1.0000000 1.0000 1.0000000 5.0000 0.9467598 1.0000 0.9467598 5.0000 0.9237530 37.0000 0.4161414 458.8240 0.8966703 3.1232 0.1349757 0.5081 3.8113730 3.8114 1.0000000 1.0000 []
+ | 28.0814 31.2429 -31.2429 0.0000000 COc1ccc(-c2ccc(C(C)NC(=O)c3cc(Cl)cc4ccn(C(=O)NC(=O)OC(C)(C)C)c34)cc2)c(C#N)c1OC 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)NC(OC(C)(C)C)=O|COc1c(OC)ccc(*)c1C#N O=C(NCc1ccc(-c2ccccc2)cc1)c1cccc2cc[nH]c12 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 0.0000000 0.0000 ['C(=[O,S])[O,S]']
+ | 34.1274 35.8961 -31.2662 0.0092597 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC3CC3C)c12)c1ccc(N2CCC3(C2)NCCN(C)C3=O)cc1 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)NC1CC1C|C1N(C)C(=O)C2(CN(*)CC2)NC1 O=C(NCc1ccc(N2CCC3(C2)NCCNC3=O)cc1)c1cccc2ccn(C(=O)NC3CC3)c12 0.4397259 0.4397 -5.4970400 -5.4970 0.0029827 563.1020 0.0000393 3.7623 0.9999987 98.7100 0.0000000 4.0000 0.9999999 6.0000 0.0532402 3.0000 0.9467598 5.0000 0.8720069 40.0000 0.1021990 506.6240 0.5707515 4.7525 1.0000000 0.4011 2.7853286 2.7853 1.0000000 1.0000 []
+ | 16.2008 18.0067 -16.0775 0.0038584 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NC3CCCCCC3)c12)c1ccc(C(C)(C)C)cc1 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)NC1CCCCCC1|CC(*)(C)C O=C(NCc1ccccc1)c1cccc2ccn(C(=O)NC3CCCCCC3)c12 0.3726055 0.3726 -1.8656500 -1.8657 0.6330546 494.0790 0.0000000 7.3637 1.0000000 63.1300 1.0000000 1.0000 1.0000000 3.0000 0.5000000 2.0000 0.9693466 4.0000 0.9467598 35.0000 0.3896340 461.6960 0.9023295 3.0688 0.0000000 0.8345 4.8491216 4.8491 1.0000000 1.0000 []
+ | 28.2049 31.2293 -30.9798 0.0004990 CC(NC(=O)c1cc(Cl)cc2ccn(C(=O)NCC34CC5CC(CC(C5)C3)C4)c12)c1ccc(N2CCCOCC2)cc1 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)NCC12CC3CC(CC(C1)C3)C2|C1COCCN(*)C1 O=C(NCc1ccc(N2CCCOCC2)cc1)c1cccc2ccn(C(=O)NCC34CC5CC(CC(C5)C3)C4)c12 0.3325111 0.3325 -5.7134300 -5.7134 0.0002708 589.1800 0.0000000 6.7865 1.0000000 75.6000 1.0000000 1.0000 1.0000000 5.0000 0.5000000 2.0000 0.9090909 6.0000 0.8227450 42.0000 0.0386156 533.7680 0.6284846 4.5434 0.0000000 0.7491 4.2147884 4.2148 1.0000000 1.0000 []
+ | 10.0379 11.3552 -9.0916 0.0045270 CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(C(F)(F)F)cc3)c21 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)NCC|C(F)(F)(F)* O=C(NCc1ccccc1)c1cccc2cc[nH]c12 0.5750840 0.5751 -10.8126700 -10.8127 0.9967450 437.8490 0.0000000 5.3821 1.0000000 63.1300 1.0000000 1.0000 1.0000000 3.0000 0.5000000 2.0000 0.9693466 4.0000 0.9789100 30.0000 0.9702281 359.2160 0.9072517 3.0192 0.0000000 0.7067 4.2391911 4.2392 1.0000000 1.0000 []
+ | 20.6570 26.3476 -16.8048 0.0190855 CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccc5nccnc5c4)cc3)c21 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)NCC|c12c(nccn1)ccc(*)c2 O=C(NCc1ccc(-c2ccc3nccnc3c2)cc1)c1cccc2cc[nH]c12 0.3126794 0.3127 -6.6838500 -6.6838 0.5462418 497.9860 0.0000000 5.9735 0.9999999 88.9100 1.0000000 1.0000 1.0000000 5.0000 0.5000000 2.0000 0.9467598 5.0000 0.9362164 36.0000 0.6529040 433.5360 0.8947691 3.1409 0.0087239 0.5206 3.4708550 3.4709 1.0000000 1.0000 []
+ | 19.2757 23.9095 -23.4573 0.0009044 CCNC(=O)n1ccc2cc(Cl)cc(C(=O)NC(C)c3ccc(-c4ccc(OC5CCN(C)CC5)nc4)cc3)c21 1 n1([*])ccc2cc(Cl)cc(C(NC(C)c3ccc([*])cc3)=O)c12 *C(=O)NCC|c1cc(OC2CCN(C)CC2)ncc1* O=C(NCc1ccc(-c2ccc(OC3CCNCC3)nc2)cc1)c1cccc2cc[nH]c12 0.2942761 0.2943 -8.8657100 -8.8657 0.0039299 560.0980 0.0000000 5.8983 0.9999999 88.4900 1.0000000 1.0000 0.9999999 6.0000 0.5000000 2.0000 0.8490205 7.0000 0.8720069 40.0000 0.1142784 503.3600 0.8719302 3.3339 0.0000000 0.7320 3.2153287 3.2153 1.0000000 1.0000 []
+22:55:37 <WARN> reinvent_plugins.normalizers.rdkit_smiles: n1([*])c2c(C(=O)NC(C)c3ccc([*])cc3)cc(Cl)cc2cc1C(CNC)(=O)*|c1c(C(NC)=O)cccn1* could not be converted
