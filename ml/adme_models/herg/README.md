@@ -6,7 +6,7 @@ The data was retrieved via the Chembl `webresource_client` API, which is pip ins
 
 The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-08_retrieve_chembl_herg.ipynb`. 
 
-The hERG model itself is a Graph Convolutional Network (GCN) deeping learning classifier (0=inactive, 1=active @ 10 uM) with the following features implemented to improve predictions:
+The hERG model itself is a Graph Convolutional Network (GCN) deeping learning classifier (0=inactive, 1=active @ 10 uM) with the following features implemented to improve training and prediction:
 
 * Random balanced sampling of the Chembl data.
 * Simple atom and bond features (one-hot encoded).
