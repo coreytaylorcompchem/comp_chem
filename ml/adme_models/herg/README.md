@@ -2,7 +2,7 @@
 
 In this repo we have a model trained on Chembl data to predict hERG toxicity. 
 
-The data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_herg/herg_chembl.csv`. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and furtehr details re: post-processing clean-up of the data. 
+The data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_herg/herg_chembl.csv`. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details re: post-processing clean-up of the data. 
 
 The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-08_retrieve_chembl_herg.ipynb`. 
 
