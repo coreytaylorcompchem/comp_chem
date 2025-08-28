@@ -13,7 +13,7 @@ The hERG model itself is a Graph Convolutional Network (GCN) deeping learning cl
 * Hyperparameter tuning via grid search with early stopping.
 * Evaluation via ROC and confusion matrix.
 
-The data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_herg/herg_chembl.csv`. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details re: post-processing clean-up of the data.
+The training data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_herg/herg_chembl.csv` and is comprised of **6365 data points**. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details re: post-processing clean-up of the data.
 
 ## Model metrics
 
