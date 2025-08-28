@@ -2,9 +2,7 @@
 
 In this repo we have a model trained on Chembl data to predict hERG toxicity. 
 
-The data was retrieved via the Chembl `webresource_client` API, which is pip installable. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details. The trained model file is `herg_gnn.pt` and can be used in any Python workflow. The code and details of the model Featurisation, specification, training and evaluation can be found in `2025-08-08_retrieve_chembl_herg.ipynb`. 
-
-COMING SOON: a detailed post at [my blog](https://ahtheelementofsurprise.wordpress.com/comp-chem-blog/) will step through the model code, construction and training. 
+The data was retrieved via the Chembl `webresource_client` API, which is pip installable. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details. The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-08_retrieve_chembl_herg.ipynb`. 
 
 The hERG model itself is a Graph Convolutional Network (GCN) deeping learning classifier (0=inactive, 1=active @ 10 uM) with the following features implemented to improve predictions:
 
@@ -24,3 +22,10 @@ The hERG model itself is a Graph Convolutional Network (GCN) deeping learning cl
 | accuracy     |        |          | 0.77    | 2000 |
 | macro avg    | 0.81   | 0.77     | 0.76    | 2000 |
 | weighted avg | 0.81   | 0.77     | 0.76    | 2000 |
+
+The trained model file is `herg_gnn.pt` and can be used in any Python workflow.
+
+## Next steps
+
+* A detailed post at [my blog](https://ahtheelementofsurprise.wordpress.com/comp-chem-blog/) will step through the model code, construction and training. 
+* Performance comparison vs other pre-trained hERG predictors.
