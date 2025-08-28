@@ -2,12 +2,12 @@
 
 In this repo we have a model trained on Chembl data to predict hERG toxicity. 
 
-The data was retrieved via the Chembl `webresource_client` API, which is pip installable. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details. The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-08_retrieve_chembl_herg.ipynb`. 
+The data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data fromSee `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details. The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-08_retrieve_chembl_herg.ipynb`. 
 
 The hERG model itself is a Graph Convolutional Network (GCN) deeping learning classifier (0=inactive, 1=active @ 10 uM) with the following features implemented to improve predictions:
 
 * Random balanced sampling of the Chembl data.
-* OneHot coded atom and bond features.
+* Simple atom and bond features (one-hot encoded).
 * Two sets of linear MLP layers and two convolutional layers with mean aggregation and a linear output layer.
 * Train / test/ validation splits for training.
 * Hyperparameter tuning via grid search with early stopping.
