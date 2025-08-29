@@ -15,7 +15,7 @@ The run can be started with the following command after activating your Reinvent
 
 ## Deviations from vanilla Reinvent (`staged_learning.toml`)
 
-* Number of epochs; min=20 max=50 (use 500 or more for production)
+* Number of epochs; min=20 max=20 (strongly recommend using 500 or more for production)
 * Docking with Gnina.
 * Scoring function contains physchem for training (QED, MW, etc.).
 * Diversity filter (MurckoScaffold).
