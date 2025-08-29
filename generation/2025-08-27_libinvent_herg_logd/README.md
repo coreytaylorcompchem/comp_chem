@@ -30,7 +30,7 @@ The run can be started with the following command after activating your Reinvent
 * Metrics to track the performance of the model can be found in `02_generation_analysis_and_metrics_ep4.ipynb`. As we've only run for 20 - 50 epochs, performance metrics don't change much (augNLL should trend toward smaller, less negative values as the model improves).
 * Addition of the hERG ML model (or any model) to the scoring function necessitates writing a component file to register and interact with the Reinvent workflow and make the prediction (examples can be found in `components/comp_herg.py` and `component/comp_logd.py`). You can set this up wherever you like but it's just easier to dump it in with all the other components where Reinvent is installed (usually something like `~/miniconda3/envs/reinvent4/lib/python3.10/site-packages/reinvent_plugins/components/`)
     * To work with Reinvent naming conventions you **must** name your component file with the convention comp_[YOUR MODEL NAME].py 
-    * A good quick check to make sure any component file you write has worked is run 'python reinvent_component_test.py`. This will display registered components and classes and confirm that your model is available to Reinvent. 
+    * A good quick check to make sure any component file you write has worked is run `python reinvent_component_test.py`. This will display registered components and classes and confirm that your model is available to Reinvent. 
 
 ## TODO
 
