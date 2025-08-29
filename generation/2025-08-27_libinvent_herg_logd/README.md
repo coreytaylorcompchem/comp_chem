@@ -20,7 +20,7 @@ The run can be started with the following command after activating your Reinvent
 * Scoring function contains physchem for training (QED, MW, etc.).
 * Diversity filter (MurckoScaffold).
 * Addition of a ML predictive models (hERG and LogD) to the scoring function.
-    * Notebooks with development and training code for the hERG and LogD models can be found in this GH at 
+    * Notebooks with development and training code for the hERG and LogD models, as well as the model files themselves, can be found in this GH at 
         * [/comp_chem/ml/adme_models/herg](https://github.com/coreytaylorcompchem/comp_chem/tree/main/ml/adme_models/herg).
         * [/comp_chem/ml/adme_models/logd](https://github.com/coreytaylorcompchem/comp_chem/tree/main/ml/adme_models/logd).
 
