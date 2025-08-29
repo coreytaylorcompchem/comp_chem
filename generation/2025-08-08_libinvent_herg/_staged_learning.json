@@ -26,7 +26,7 @@
     "filter": null,
     "stage": [
         {
-            "max_steps": 50,
+            "max_steps": 20,
             "max_score": 0.6,
             "chkpt_file": "2025-08-04_reinvent.chkpt",
             "termination": "simple",

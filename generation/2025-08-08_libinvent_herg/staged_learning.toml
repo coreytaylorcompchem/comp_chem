@@ -94,7 +94,7 @@ chkpt_file = '2025-08-04_reinvent.chkpt'  # name of the checkpoint file, can be 
 termination = "simple"  # termination criterion fot this stage
 max_score = 0.6  # terminate if this total score is exceeded
 min_steps = 20  # run for at least this number of steps
-max_steps = 50  # terminate entire run when exceeded. For production, run at least 500 steps.
+max_steps = 20  # terminate entire run when exceeded. For production, run at least 500 steps.
 
 # Optionally, a DF can be set for each stage but note that the global DF
 # section above will always overwrite the stage section and you need to
