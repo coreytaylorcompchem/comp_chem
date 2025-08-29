@@ -13,6 +13,8 @@ The run can be started with the following command after activating your Reinvent
 
 `reinvent -l log.log staged_learning.toml`
 
+Some relevant information about the data transforms of scoring function items in the `staged_learning.toml` can be found in the [tuning Reinvent notebook](https://github.com/coreytaylorcompchem/comp_chem/blob/main/generation/2025-08-29_tuning_reinvent.ipynb)
+
 ## Deviations from vanilla Reinvent (`staged_learning.toml`)
 
 * Number of epochs; min=20 max=20 (strongly recommend using 500 or more for production)
