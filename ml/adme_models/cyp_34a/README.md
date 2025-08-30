@@ -17,13 +17,13 @@ Training data was retrieved via the Chembl `webresource_client` API, which is pi
 
 ## Model metrics
 
-RMSE: 0.6664
-MAE: 0.4216
-R²: 0.9629
+RMSE: 0.6664\n
+MAE: 0.4216\n
+R²: 0.9629\n
 
 ![true vs predicted ic50s](true_vs_predicted_pic50s.png)
 
-The data were suspiciously night so I had a deeper look at whether there was any model over-fitting. Training and validation loss were reasonable across epochs 
+The data were suspiciously nice so I had a deeper look at whether there was any model over-fitting. Training and validation loss were reasonable across epochs 
 
 ![training and validation loss](image.png)
 
