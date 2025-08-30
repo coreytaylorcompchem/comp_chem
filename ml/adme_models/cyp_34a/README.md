@@ -17,9 +17,11 @@ Training data was retrieved via the Chembl `webresource_client` API, which is pi
 
 ## Model metrics
 
-RMSE: 0.6664\n
-MAE: 0.4216\n
-R²: 0.9629\n
+```
+RMSE: 0.6664
+MAE: 0.4216
+R²: 0.9629
+```
 
 ![true vs predicted ic50s](true_vs_predicted_pic50s.png)
 
