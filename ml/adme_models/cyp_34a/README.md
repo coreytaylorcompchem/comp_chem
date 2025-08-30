@@ -1,6 +1,6 @@
-# DL model to predict CYPO3A4 activity. 
+# DL model to predict CYP3A4 activity. 
 
-In this repo we have a model trained on Chembl data to predict the pIC50 of molecules agianst the CYP3A4 isoform from SMILES.  
+In this repo we have a model trained on Chembl data to predict the pIC50 of molecules against the CYP3A4 isoform from SMILES.  
 
 In this case we have a lighter DL regression model (GINRegressor) that gets very good performance with the following features implemented to improve training and prediction:
 
@@ -27,18 +27,20 @@ The data were suspiciously nice so I had a deeper look at whether there was any 
 
 ![training and validation loss](image.png)
 
-X-fold validation showed variance in the lin0.weight across folds and one fold was conspicuously more accurate than others in this and most metrics, when we'd hope they were similar.
+X-fold validation showed variance in the lin0.weight across folds and one fold was conspicuously more accurate than others in this and most metrics, when we'd hope they are similar.
 
 ![L2 norma variance](l2_norm_variance.png)
 ![training and validation loss](weight_norms_comparison.png)
 
 `lin.0` is the first linear layer after global pooling, which means it's likely the first point of aggregation between node-level and global-level features. However, the values of all the other folds are very similar so, on balance, there's unlikely to be much of a generalisability issue.
 
+```
 Fold 0 - lin.0.weight L2 norm: 14.3973
 Fold 1 - lin.0.weight L2 norm: 14.0053
 Fold 2 - lin.0.weight L2 norm: 18.8263
 Fold 3 - lin.0.weight L2 norm: 22.7037
 Fold 4 - lin.0.weight L2 norm: 14.2238
+```
 
 See `2025-08-28_ml_cyp_3a4.ipynb` for all the training code and analysis used to generate these data.  
 
