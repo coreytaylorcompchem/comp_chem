@@ -1,0 +1,48 @@
+# DL model to predict CYPO3A4 activity. 
+
+In this repo we have a model trained on Chembl data to predict the pIC50 of molecules agianst the CYP3A4 isoform from SMILES.  
+
+In this case we have a lighter DL regression model (GINRegressor) that gets very good performance with the following features implemented to improve training and prediction:
+
+* Simple descriptors such as atom symbols and hybridisation type (one-hot encoded) augmented with Rdkit chemical descriptors which should contribute to lipophilicity (partial charges, aromaticity, vdW radius, etc.). 
+* Two GATv2Conv layers; a multi-head attention layer and a single-head attention layer.
+* A final output layer for the regression (`self.lin`)
+* Train / test/ validation splits for training.
+* Hyperparameter tuning via grid search with early stopping.
+* Evaluation via error statistics (RMSE, MAE and R²).
+
+The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-28_retrieve_chembl_microsomal_clint.ipynb`. The trained model file is `cyop_3a4_gin.pt` and can be used in any Python workflow.
+
+Training data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_logd/cyp_3a4_chembl.csv` and is comprised of **6081 data points**. See `2025-08-26_retrieve_chembl_cyp_3a4.ipynb` for code and further details re: post-processing clean-up of the data.
+
+## Model metrics
+
+RMSE: 0.6664
+MAE: 0.4216
+R²: 0.9629
+
+![true vs predicted ic50s](true_vs_predicted_pic50s.png)
+
+The data were suspiciously night so I had a deeper look at whether there was any model over-fitting. Training and validation loss were reasonable across epochs 
+
+![training and validation loss](image.png)
+
+X-fold validation showed variance in the lin0.weight across folds and one fold was conspicuously more accurate than others in this and most metrics, when we'd hope they were similar.
+
+![L2 norma variance](l2_norm_variance.png)
+![training and validation loss](weight_norms_comparison.png)
+
+`lin.0` is the first linear layer after global pooling, which means it's likely the first point of aggregation between node-level and global-level features. However, the values of all the other folds are very similar so, on balance, there's unlikely to be much of a generalisability issue.
+
+Fold 0 - lin.0.weight L2 norm: 14.3973
+Fold 1 - lin.0.weight L2 norm: 14.0053
+Fold 2 - lin.0.weight L2 norm: 18.8263
+Fold 3 - lin.0.weight L2 norm: 22.7037
+Fold 4 - lin.0.weight L2 norm: 14.2238
+
+See `2025-08-28_ml_cyp_3a4.ipynb` for all the training code and analysis used to generate these data.  
+
+## Next steps
+
+* A detailed post at [my blog](https://ahtheelementofsurprise.wordpress.com/comp-chem-blog/) will step through the model code, construction and training. 
+* Performance comparison vs other pre-trained LogD predictors. Spot checks of predictions suggest improved performance when compared to Cxcalc.
