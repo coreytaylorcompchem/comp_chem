@@ -5,7 +5,7 @@ In this repo we have a model trained on Chembl data to predict the pIC50 of mole
 In this case we have a lighter DL regression model (GINRegressor) that gets very good performance with the following features implemented to improve training and prediction:
 
 * Simple descriptors such as atom symbols and hybridisation type (one-hot encoded) augmented with Rdkit chemical descriptors which should contribute to lipophilicity (partial charges, aromaticity, vdW radius, etc.). 
-* Two GATv2Conv layers; a multi-head attention layer and a single-head attention layer.
+* Two linear MLP layers and two convolutional layers.
 * A final output layer for the regression (`self.lin`)
 * Train / test/ validation splits for training.
 * Hyperparameter tuning via grid search with early stopping.
