@@ -25,11 +25,13 @@ R²: 0.9629
 
 ![true vs predicted ic50s](true_vs_predicted_pic50s.png)
 
-The data were suspiciously nice so I had a deeper look at whether there was any model over-fitting. Training and validation loss were reasonable across epochs 
+The data were suspiciously nice so I had a deeper look at whether there was any model over-fitting. 
+
+Training and validation loss were reasonable across epochs 
 
 ![training and validation loss](image.png)
 
-X-fold validation showed variance in the lin0.weight across folds and one fold was conspicuously more accurate than others in this and most metrics, when we'd hope they are similar.
+X-fold validation showed variance in the lin0.weight across folds and one fold (Fold 3) was conspicuously more accurate than others in this and most metrics, when we'd hope they are similar.
 
 ![L2 norma variance](l2_norm_variance.png)
 ![training and validation loss](weight_norms_comparison.png)
