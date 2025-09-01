@@ -51,4 +51,4 @@ See `2025-08-28_ml_cyp_3a4.ipynb` for all the training code and analysis used to
 ## Next steps
 
 * A detailed post at [my blog](https://ahtheelementofsurprise.wordpress.com/comp-chem-blog/) will step through the model code, construction and training. 
-* Performance comparison vs other pre-trained LogD predictors. Spot checks of predictions suggest improved performance when compared to Cxcalc.
+* Experiment with lighter models - maybe we can get similar performance with much faster methods.
