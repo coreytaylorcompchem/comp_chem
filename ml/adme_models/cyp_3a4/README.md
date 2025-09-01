@@ -11,7 +11,7 @@ In this case we have a lighter DL regression model (GINRegressor) that gets very
 * Hyperparameter tuning via grid search with early stopping.
 * Evaluation via error statistics (RMSE, MAE and R²).
 
-The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-28_retrieve_chembl_microsomal_clint.ipynb`. The trained model file is `cyop_3a4_gin.pt` and can be used in any Python workflow.
+The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-28_retrieve_chembl_cyp_3a4.ipynb`. The trained model file is `cyop_3a4_gin.pt` and can be used in any Python workflow.
 
 Training data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_logd/cyp_3a4_chembl.csv` and is comprised of **6081 data points**. See `2025-08-26_retrieve_chembl_cyp_3a4.ipynb` for code and further details re: post-processing clean-up of the data.
 
