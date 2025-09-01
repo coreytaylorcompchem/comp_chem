@@ -1,6 +1,6 @@
 # Reinvent example with multiple ML prediction models added to the scoring function 
 
-[Reinvent](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-024-00812-5) is a molecule generation tool that uses Reinforcement Learning (RL) to generate compounds. In the example here, we use a scaffold from a from Chembl ligand (scaffolds.smi) to guide R-group enumeration. Metrics to track the performance of the model can be found in `02_generation_analysis_and_metrics_ep4.ipynb`.
+[Reinvent](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-024-00812-5) is a molecule generation tool that uses Reinforcement Learning (RL) to generate compounds. In the example here, we use a scaffold from a from Chembl ligand (scaffolds.smi) to guide R-group enumeration. 
 
 In this example, we have added two trained ADME models to the scoring function;
 
@@ -41,5 +41,5 @@ Some relevant information about the data transforms of scoring function items in
 ## TODO
 
 * Blog post explaining all this mess.
-* Experiment with building simpler XGBoost model(s) that are as performant as this one but cheaper computationally.
+* Experiment with building simpler XGBoost model(s) that are as performant as this one but cheaper computationally. 
 
