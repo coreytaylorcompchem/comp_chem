@@ -11,7 +11,7 @@ The LogD model is a multi-head Graph Attention Transformer (GATv2Conv) regressio
 * Hyperparameter tuning via grid search with early stopping.
 * Evaluation via error statistics (RMSE, MAE and R²).
 
-The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-26_retrieve_chembl_logd.ipynb`. The trained model file is `logd_gat.pt` and can be used in any Python workflow.
+The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-26_ml_logd.ipynb`. The trained model file is `logd_gat.pt` and can be used in any Python workflow.
 
 Training data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_logd/logd_chembl.csv` and is comprised of **7713 data points**. See `2025-08-26_retrieve_chembl_logd.ipynb` for code and further details re: post-processing clean-up of the data.
 
@@ -21,7 +21,7 @@ RMSE: 0.8472
 MAE: 0.6448
 R²: 0.6844
 
-![alt text](image.png)
+![true vs predicted LogDs](image.png)
 
 ## Next steps
 

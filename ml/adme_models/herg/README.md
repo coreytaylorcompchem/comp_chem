@@ -11,7 +11,7 @@ The hERG model itself is a Graph Convolutional Network (GCN) deep learning class
 * Hyperparameter tuning via grid search with early stopping.
 * Evaluation via ROC and confusion matrix.
 
-The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-08_retrieve_chembl_herg.ipynb`. The trained model file is `herg_gnn.pt` and can be used in any Python workflow.
+The code and details of the model featurisation, specification, training and evaluation can be found in `2025-08-08_ml_herg.ipynb`. The trained model file is `herg_gnn.pt` and can be used in any Python workflow.
 
 The training data was retrieved via the Chembl `webresource_client` API, which is pip installable. The retrieved data from Chembl is in `data_herg/herg_chembl.csv` and is comprised of **6365 data points**. See `2025-08-08_retrieve_chembl_herg.ipynb` for code and further details re: post-processing clean-up of the data.
 
