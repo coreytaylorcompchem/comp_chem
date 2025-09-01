@@ -6,7 +6,7 @@ In this example, we have added two trained ADME models to the scoring function;
 
 * hERG classification (1=active, 0=inactive)
 * LogD regression model to directly predict LogD
-* CYP3A4 regression model to predict pIC50 against the isoform as a proxy for others important isoforms.
+* CYP3A4 regression model to predict pIC50 against the isoform as a proxy for other important isoforms.
 
 Generated molecules are scored by this model and the results are used to re-train the Reinvent RL.
 
@@ -41,4 +41,5 @@ Some relevant information about the data transforms of scoring function items in
 ## TODO
 
 * Blog post explaining all this mess.
+* Experiment with building simpler XGBoost model(s) that are as performant as this one but cheaper computationally.
 
