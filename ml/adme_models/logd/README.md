@@ -21,7 +21,7 @@ RMSE: 0.8472
 MAE: 0.6448
 R²: 0.6844
 
-![true vs predicted LogDs](image.png)
+![true vs predicted LogDs](logd_pred_vs_actual.png)
 
 ## Next steps
 
