@@ -1,12 +1,18 @@
-# Oligomerisation of Thorium complexes with different electrolytes.
+# Oligomerisation of Thorium complexes.
 
-This repo provides analysis of QMMM simulations investigating the oligerisation behaviour of Thorium(IV)-NO3 complexes with varying electrolyte composition (K+/Li+/Na+) in conjunction with my former employer HZDR (Department of the chemistry of the f-elements).
+This repo provides analysis of QMMM simulations investigating the oligerisation behaviour of Thorium(IV)-NO3 complexes in conjunction with my former employer HZDR (Department of the chemistry of the f-elements).
 
 ![Thorium, NO3 and Sodium in a water box](_images/th_no3_na.png)
 
 ## Context
 
-In this case we have three systems 
+In nuclear repository design, there is a need to address the degree of mobility of radionuclides after formation and their degree of migration should the repository leak and natural groundwaters are exposed. This study seeks to answer the following question; are Th-nitrato complexes are responsible for the reduced Th immobilization in the case of Na electrolytes?
+
+Here we have three bi-metallic Thorium nitrate systems where the electrolyte is varied between three electrolytes (K+/Li+/Na+). The specific electrolyte is believed to affect the molecular environment and affect the likelihood of oligomer formation. The behaviour with respect to
+
+## Literature
+
+[Role of nitrate on the formation and retention of ThIV nanoparticles at the muscovite (001)-water interface, Neumann et al, 2023](https://inis.iaea.org/records/xhg3e-r9z78)
 
 ## Setup
 
