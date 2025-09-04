@@ -1,6 +1,7 @@
 from MDAnalysis.analysis.hydrogenbonds.hbond_analysis import HydrogenBondAnalysis as HBA
 import numpy as np
 import networkx as nx
+from collections import defaultdict
 
 class HydrogenBondCoordinationAnalyser:
     def __init__(self, universe, stride=1, hbond_cutoff=3.0, water_bridge_cutoff=4.0, first_sphere_cutoff=5.0):
@@ -145,19 +146,344 @@ class HydrogenBondCoordinationAnalyser:
                         counts[frame_idx] += 1
         self.water_water_near_heta = counts
 
+    def get_solvation_switches(self, segid_central="HETA", segid_solvent="SOLV", bond_type="Coordination"):
+        """
+        Tracks the solvation shell of a central group over time and detects switches in solvent identity.
+        
+        Returns:
+            shell_history: dict[frame] = set(atom indices of solvent in shell)
+            switches: list of dicts with 'frame', 'joined', 'left' keys
+        """
+        shell_history = {}
+        switches = []
+
+        prev_shell = set()
+
+        for frame in sorted(self.graphs.keys()):
+            G = self.graphs[frame]
+            current_shell = set()
+
+            # Find solvent atoms bonded to the central group (e.g. HETA)
+            for u_idx, v_idx, data in G.edges(data=True):
+                if data.get("bond_type") != bond_type:
+                    continue
+
+                u_seg = G.nodes[u_idx]['segid']
+                v_seg = G.nodes[v_idx]['segid']
+
+                if (u_seg == segid_central and v_seg == segid_solvent):
+                    current_shell.add(v_idx)
+                elif (v_seg == segid_central and u_seg == segid_solvent):
+                    current_shell.add(u_idx)
+
+            shell_history[frame] = current_shell
+
+            # Compare to previous shell
+            if prev_shell:
+                joined = current_shell - prev_shell
+                left = prev_shell - current_shell
+
+                switches.append({
+                    "frame": frame,
+                    "time": self.coord_cache[frame]["time"],
+                    "joined": joined,
+                    "left": left,
+                    "net_change": len(joined) + len(left)
+                })
+
+            prev_shell = current_shell
+
+        return shell_history, switches
+    
+    def get_persistent_coordinators(
+        self,
+        segid_central="HETA",
+        segid_partner="SOLV",
+        bond_type="Coordination",
+        min_fraction=0.5,
+        consecutive_only=False
+    ):
+        """
+        Identify atoms (e.g., water) that are persistently coordinated to a central group.
+
+        Args:
+            segid_central: the central group (e.g., 'HETA')
+            segid_partner: the coordinating atoms (e.g., 'SOLV')
+            bond_type: edge type (e.g., 'Coordination')
+            min_fraction: minimum fraction of frames to be considered persistent
+            consecutive_only: if True, only consider uninterrupted sequences
+
+        Returns:
+            persistent_atoms: list of atom indices that meet criteria
+            coordination_map: dict[atom_idx] = list of frames in which it's coordinated
+        """
+
+        def max_consecutive_streak(frames):
+            """Return length of the longest consecutive sequence in a list of integers."""
+            if not frames:
+                return 0
+            streak = max_streak = 1
+            for i in range(1, len(frames)):
+                if frames[i] == frames[i - 1] + 1:
+                    streak += 1
+                    max_streak = max(max_streak, streak)
+                else:
+                    streak = 1
+            return max_streak
+
+        coordination_map = defaultdict(list)  # atom_idx -> list of frames
+        frames = sorted(self.graphs.keys())
+
+        for frame in frames:
+            G = self.graphs[frame]
+            for u_idx, v_idx, data in G.edges(data=True):
+                if data.get("bond_type") != bond_type:
+                    continue
+
+                u_seg = G.nodes[u_idx]['segid']
+                v_seg = G.nodes[v_idx]['segid']
+
+                if (u_seg == segid_central and v_seg == segid_partner):
+                    coordination_map[v_idx].append(frame)
+                elif (v_seg == segid_central and u_seg == segid_partner):
+                    coordination_map[u_idx].append(frame)
+
+        persistent_atoms = []
+        total_frames = len(frames)
+
+        for atom_idx, frame_list in coordination_map.items():
+            if consecutive_only:
+                # Count longest consecutive streak
+                streak = max_consecutive_streak(sorted(frame_list))
+                if streak / total_frames >= min_fraction:
+                    persistent_atoms.append(atom_idx)
+            else:
+                if len(frame_list) / total_frames >= min_fraction:
+                    persistent_atoms.append(atom_idx)
+
+        return persistent_atoms, coordination_map
+    
+    def get_residency_lifetimes(self, segid_central="HETA", segid_partner="SOLV", bond_type="Coordination"):
+        """
+        Calculate residency lifetimes of partner atoms coordinated to the central group.
+
+        Returns:
+            lifetimes_ps: list of residency times in picoseconds
+            residency_map: dict[atom_idx] = list of (start_frame, end_frame, duration_ps)
+        """
+
+        coordination_map = defaultdict(list)  # atom_idx -> list of frames
+        frames = sorted(self.graphs.keys())
+
+        # Step 1: Build coordination map
+        for frame in frames:
+            G = self.graphs[frame]
+            for u_idx, v_idx, data in G.edges(data=True):
+                if data.get("bond_type") != bond_type:
+                    continue
+
+                u_seg = G.nodes[u_idx]['segid']
+                v_seg = G.nodes[v_idx]['segid']
+
+                if (u_seg == segid_central and v_seg == segid_partner):
+                    coordination_map[v_idx].append(frame)
+                elif (v_seg == segid_central and u_seg == segid_partner):
+                    coordination_map[u_idx].append(frame)
+
+        # Step 2: Convert frame lists into lifetimes
+        residency_map = defaultdict(list)
+        lifetimes_ps = []
+
+        for atom_idx, coord_frames in coordination_map.items():
+            if not coord_frames:
+                continue
+            coord_frames = sorted(coord_frames)
+
+            # Segment into continuous blocks
+            block_start = coord_frames[0]
+            prev_frame = block_start
+
+            for f in coord_frames[1:]:
+                if f == prev_frame + self.stride:
+                    prev_frame = f
+                else:
+                    # End current block
+                    t0 = self.coord_cache[block_start]["time"]
+                    t1 = self.coord_cache[prev_frame]["time"]
+                    lifetime = t1 - t0
+                    lifetimes_ps.append(lifetime)
+                    residency_map[atom_idx].append((block_start, prev_frame, lifetime))
+                    # Start new block
+                    block_start = f
+                    prev_frame = f
+
+            # Handle last block
+            t0 = self.coord_cache[block_start]["time"]
+            t1 = self.coord_cache[prev_frame]["time"]
+            lifetime = t1 - t0
+            lifetimes_ps.append(lifetime)
+            residency_map[atom_idx].append((block_start, prev_frame, lifetime))
+
+        return lifetimes_ps, residency_map
+    
+    def get_edge_turnover(self, bond_type=None, normalize=False):
+        """
+        Compute edge turnover (formed + broken edges) per frame.
+        
+        Args:
+            bond_type: str or None — restrict to e.g., 'H-bond' or 'Coordination'. If None, use all.
+            normalize: bool — if True, return fraction of total edges at each frame.
+            
+        Returns:
+            turnover_per_frame: list of (time_ps, turnover_count or turnover_fraction)
+        """
+        turnover_data = []
+        frames = sorted(self.graphs.keys())
+        
+        prev_edges = set()
+
+        for i, frame in enumerate(frames):
+            G = self.graphs[frame]
+            time = self.coord_cache[frame]["time"]
+            
+            # Filter edges by bond_type if needed
+            edges = set()
+            for u, v, data in G.edges(data=True):
+                if bond_type is None or data.get("bond_type") == bond_type:
+                    edge = tuple(sorted((u, v)))
+                    edges.add(edge)
+
+            if i == 0:
+                turnover = 0  # No previous frame to compare
+            else:
+                added = edges - prev_edges
+                removed = prev_edges - edges
+                turnover = len(added) + len(removed)
+
+            if normalize:
+                denom = len(edges) if edges else 1  # Avoid division by zero
+                turnover = turnover / denom
+
+            turnover_data.append((time, turnover))
+            prev_edges = edges
+
+        return turnover_data
+    
+    def calculate_edge_addition_removal(self, bond_type="H-bond"):
+        """
+        Calculate number of edges added and removed between frames for a specific bond type.
+
+        Returns:
+            times (list): List of times corresponding to each frame (excluding first)
+            added (list): Number of new edges at each frame
+            removed (list): Number of edges that disappeared from previous frame
+        """
+        graphs = self.graphs  # Use the internal graphs
+        sorted_frames = sorted(graphs.keys())
+        prev_edges = set()
+        
+        times = []
+        added = []
+        removed = []
+
+        for i, frame in enumerate(sorted_frames):
+            G = graphs[frame]
+            edges = {
+                tuple(sorted((u, v)))
+                for u, v, d in G.edges(data=True)
+                if d.get("bond_type") == bond_type
+            }
+
+            if i == 0:
+                prev_edges = edges
+                continue
+
+            # Calculate added and removed edges
+            new_edges = edges - prev_edges
+            gone_edges = prev_edges - edges
+
+            added.append(len(new_edges))
+            removed.append(len(gone_edges))
+            times.append(self.coord_cache[frame]["time"])
+
+            prev_edges = edges
+
+        return times, added, removed
+    
+    def analyse_graph_topology(self, bond_type_filter=None):
+        """
+        Perform topological analysis on a dict of NetworkX graphs.
+
+        Parameters:
+            graphs (dict): frame -> nx.Graph
+            bond_type_filter (str or None): if specified, only include edges of this bond type
+
+        Returns:
+            result (dict): {
+                'frame': [...],
+                'degree_centrality': [dict[node] = centrality],
+                'clustering': [dict[node] = clustering coefficient],
+                'n_components': [int],
+                'component_sizes': [list of sizes]
+            }
+        """
+        result = {
+            "frame": [],
+            "degree_centrality": [],
+            "clustering": [],
+            "n_components": [],
+            "component_sizes": []
+        }
+
+        for frame in sorted(self.graphs):
+            G = self.graphs[frame]
+
+            if bond_type_filter:
+                G_filtered = nx.Graph()
+                for u, v, d in G.edges(data=True):
+                    if d.get("bond_type") == bond_type_filter:
+                        if u not in G_filtered:
+                            G_filtered.add_node(u, **G.nodes[u])
+                        if v not in G_filtered:
+                            G_filtered.add_node(v, **G.nodes[v])
+                        G_filtered.add_edge(u, v, **d)
+            else:
+                G_filtered = G.copy()
+
+            deg_centrality = nx.degree_centrality(G_filtered)
+            clustering = nx.clustering(G_filtered)
+            components = list(nx.connected_components(G_filtered))
+            n_components = len(components)
+            component_sizes = [len(c) for c in components]
+
+            result["frame"].append(frame)
+            result["degree_centrality"].append(deg_centrality)
+            result["clustering"].append(clustering)
+            result["n_components"].append(n_components)
+            result["component_sizes"].append(component_sizes)
+
+        return result
+
     def run_all(self):
         """Convenience method to run the full analysis pipeline."""
         self.cache_coordinates()
         self.run_hbond_analysis()
         self.build_graphs()
         self.compute_water_water_near_heta()
-
-import numpy as np
+        self.get_solvation_switches()
+        self.get_persistent_coordinators()
+        self.get_residency_lifetimes()
+        self.get_edge_turnover()
+        self.calculate_edge_addition_removal()
+        # Save grap topology analysis results to self.
+        self.topology_results_all = self.analyse_graph_topology()
+        self.topology_results_hbond = self.analyse_graph_topology(bond_type_filter="H-bond")
+        self.topology_results_coord = self.analyse_graph_topology(bond_type_filter="Coordination")
 
 class InteractionAnalysis:
     def __init__(self, analyser):
         """
-        analszer: instance of HydrogenBondCoordinationAnalyser
+        analyser: instance of HydrogenBondCoordinationAnalyser
         """
         self.analyser = analyser
         self.frames = sorted(self.analyser.graphs.keys())
