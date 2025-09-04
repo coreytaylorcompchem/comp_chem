@@ -16,9 +16,13 @@ Here we have three bi-metallic Thorium nitrate systems where the electrolyte is 
 
 ## Setup
 
-QMMM simulations were run for 200 ps using CHARMm/Turbomole for MM and QM regions respectively. The exact set-up is largely in line with a 5-part explanation I provided on my blog;
+QMMM simulations were run for 200 ps using CHARMm/Turbomole for MM and QM regions respectively. The QM region is the two Th(IV)-NO3 complexes, electrolyes and 1st hydration shell water molecules.
+
+The exact set-up is largely in line with a 5-part explanation I provided on my blog;
 * [1: basics](https://ahtheelementofsurprise.wordpress.com/2020/05/10/qmmm-with-charmm-turbomole-part-i-the-very-basics/)
 * [2: setting up CHARMm](https://ahtheelementofsurprise.wordpress.com/2020/05/10/qmmm-with-charmm-turbomole-part-ii-the-charmm-side/) 
 * [3: setting up Turbomole](https://ahtheelementofsurprise.wordpress.com/2020/05/10/qmmm-with-charmm-turbomole-part-iv-the-stuff-ive-found-that-works/) 
 * [4: putting it all together](https://ahtheelementofsurprise.wordpress.com/2020/05/10/qmmm-with-charmm-turbomole-part-iv-stuff-ive-found-that-works/) 
 * [5: general tips](https://ahtheelementofsurprise.wordpress.com/2020/05/17/qmmm-with-charmm-turbomole-part-iv-general-tips-and-stuff-ive-found-that-works/)
+
+All MD analyses were done with Python frameworks such as MDAnalysis, scipy/numpy/pandas, etc.
