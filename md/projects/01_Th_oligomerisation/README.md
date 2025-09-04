@@ -8,7 +8,7 @@ This repo provides analysis of QMMM simulations investigating the oligerisation 
 
 In nuclear repository design, there is a need to address the degree of mobility of radionuclides after formation and their degree of migration should the repository leak and natural groundwaters are exposed. This study seeks to answer the following question; are Th-nitrato complexes are responsible for the reduced Th immobilization in the case of Na electrolytes?
 
-Here we have three bi-metallic Thorium nitrate systems where the electrolyte is varied between three electrolytes (K+/Li+/Na+). The specific electrolyte is believed to affect the molecular environment and affect the likelihood of oligomer formation. The behaviour with respect to
+Here we have three bi-metallic Thorium nitrate systems where the electrolyte is varied between three electrolytes (K+/Li+/Na+). The electrolyte used in each system is believed to affect the molecular environment the likelihood of oligomer formation. 
 
 ## Literature
 
