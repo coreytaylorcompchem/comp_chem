@@ -23,18 +23,18 @@ MAE: 0.4216
 R²: 0.9629
 ```
 
-![true vs predicted ic50s](true_vs_predicted_pic50s.png)
+![true vs predicted ic50s](_images/true_vs_predicted_pic50s.png)
 
 The data were suspiciously nice so I had a deeper look at whether there was any model over-fitting. 
 
 Both curves decrease rapidly in the first ~10 epochs, showing good learning. After that, both training and validation losses continue to decrease more slowly and the validation loss closely tracks the training loss - indicative of good generalisation and minimal overfitting. Classically, overfitting would be indicated by a difference in curve behaviour (training loss decreasing while validation loss increases / plateaus, a widening gap between the two curves over epochs, etc)
 
-![training and validation loss](image.png)
+![training and validation loss](_images/traing_val_loss_curves.png)
 
 X-fold validation showed variance in the lin0.weight across folds and one fold (Fold 3) was conspicuously more accurate than others in this and most metrics, when we'd hope they are similar.
 
-![L2 norma variance](l2_norm_variance.png)
-![training and validation loss](weight_norms_comparison.png)
+![L2 norm variance](_images/l2_norm_variance.png)
+![training and validation loss](_images/weight_norms_comparison.png)
 
 `lin.0` is the first linear layer after global pooling, which means it's likely the first point of aggregation between node-level and global-level features. However, the values of all the other folds are very similar so, on balance, there's unlikely to be much of a generalisability issue.
 
