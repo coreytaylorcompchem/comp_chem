@@ -29,7 +29,7 @@ The data were suspiciously nice so I had a deeper look at whether there was any 
 
 Both curves decrease rapidly in the first ~10 epochs, showing good learning. After that, both training and validation losses continue to decrease more slowly and the validation loss closely tracks the training loss - indicative of good generalisation and minimal overfitting. Classically, overfitting would be indicated by a difference in curve behaviour (training loss decreasing while validation loss increases / plateaus, a widening gap between the two curves over epochs, etc)
 
-![training and validation loss](_images/traing_val_loss_curves.png)
+![training and validation loss](_images/train_val_loss_curves.png)
 
 X-fold validation showed variance in the lin0.weight across folds and one fold (Fold 3) was conspicuously more accurate than others in this and most metrics, when we'd hope they are similar.
 
