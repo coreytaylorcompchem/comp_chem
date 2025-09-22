@@ -18,14 +18,25 @@ Training data was retrieved via the Chembl `webresource_client` API, which is pi
 ## Model metrics
 
 ```
-RMSE: XXX
-MAE: XXX
-R²: XXX
+RMSE: 47.7742
+MAE: 18.4958
+R²: 0.9062
 ```
 
 ![true vs predicted ic50s](_images/true_vs_predicted_pic50s.png)
 
+Overall good correlation and good (~0.9) performance. Training curves looked okay too. BUt there are some really big differences in some cases
 
+There's some evidence of model over training in the L2 norms, especially in layers that would be more affected by larger molecules. In short, there are some quite large molecules in the dataset, but not many. This may actually cause the model to 'over-react' in training. And it stands to reason that some of the worst predictions are on the largest molecules, where some that are extremely permeable are predicted to be very non-permeable.
+
+![Examples of poor predictions](_images/5x_outliers_grid_examples.png)
+
+Looking at the overall fold variation we see the greatest variation in the 2nd convolutional layer, which would be more senstive to the size of the molecule being predicted (see notebook for more detail on this). That said, given we only see it in one fold and overall larger molecules aren't common in the dataset, this is more a reason to be cautious for now. 
+
+![L2 variance](_images/l2_norm_variance.png)
+![Per-fold variance](_images/weight_norms_comparison.png)
+
+Given there's large variation in a few variables in one Fold, some measure of normalisation and/or training more on larger molecules is warranted. But this model will do for most purposes. 
 
 See `2025-09-21_ml_caco2.ipynb` for all the training code and analysis used to generate these data.  
 
