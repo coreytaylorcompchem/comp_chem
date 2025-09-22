@@ -1,4 +1,4 @@
-# DL model to predict Caco-2 activity (WIP). 
+# DL model to predict Caco-2 activity. 
 
 In this repo we have a model trained on Chembl data to predict the permeability (Caco-2 A->B Papp) from SMILES.  
 
