@@ -38,7 +38,7 @@ Looking at the overall fold variation we see the greatest variation in the 2nd c
 ![L2 variance](_images/l2_norm_variance.png)
 ![Per-fold variance](_images/weight_norms_comparison.png)
 
-Given there's large variation in a few variables in one Fold, some measure of normalisation and/or training more on larger molecules is warranted. But this model will do for most purposes. 
+Given there's large variation in a few variables in one Fold, some measure of normalisation and/or training more on larger molecules is warranted. Certainly the number of really poor predictions is of concern, especially for molecules at the permeable end (Papp < 5). So given the model does well at predicting moderately to very poorly permeable molecules, the performance is probably unacceptable for now and we should aim for R² > 0.95.   
 
 See `2025-09-21_ml_caco2.ipynb` for all the training code and analysis used to generate these data.  
 
