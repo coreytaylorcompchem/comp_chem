@@ -29,6 +29,8 @@ Overall good correlation and good (~0.9) performance. Training curves looked oka
 
 There's some evidence of model over training in the L2 norms, especially in layers that would be more affected by larger molecules. In short, there are some quite large molecules in the dataset, but not many. This may actually cause the model to 'over-react' in training. And it stands to reason that some of the worst predictions are on the largest molecules, where some that are extremely permeable are predicted to be very non-permeable.
 
+Here are some examples (T = True, P = Predicted, Δ = difference between T and P). Note both the molecular size and poor predictions on molecules that are very much permeable.
+
 ![Examples of poor predictions](_images/5x_outliers_grid_examples.png)
 
 Looking at the overall fold variation we see the greatest variation in the 2nd convolutional layer, which would be more senstive to the size of the molecule being predicted (see notebook for more detail on this). That said, given we only see it in one fold and overall larger molecules aren't common in the dataset, this is more a reason to be cautious for now. 
