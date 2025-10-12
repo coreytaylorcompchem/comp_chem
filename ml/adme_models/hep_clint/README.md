@@ -16,7 +16,7 @@ R²: 0.7168
 
 ![true vs predicted ic50s](_images/true_vs_predicted_clint.png)
 
-This is actually a reasonable result for microsomal clint. These data are notoriously noisy due to varying conditions, measurements, etc. An important factor is the gender of the species cells were extracted from and although there is some info in the output, it's not reliable enough to use, sadly. 
+This is actually a reasonable result for microsomal clint. These data are notoriously noisy due to varying conditions, measurements, etc. An important factor is the gender of the species cells were extracted from. Although there is some info in the output, it's not reliable enough to use, sadly. 
 
 **After transfer learning**.
 
@@ -26,9 +26,11 @@ We expect a performance bump with transfer learning but this was suspiciously go
 
 **Training with random seeds in train/val split**.
 
+```
 RMSE: 52.3262 | MAE: 31.6308 | R²: 0.8995
 RMSE: 44.6918 | MAE: 25.6284 | R²: 0.9246
 RMSE: 32.5187 | MAE: 21.2618 | R²: 0.9633
+```
 
 We expect a performance bump with transfer learning but this was suspiciously good. Aside from the above check and making sure train/val sets had low leakage, scaffold similarity, etc. the performance holds. I still don't buy it and in production maybe you'd dig deeper but this will do for now. 
 
