@@ -12,6 +12,8 @@ RMSE: 81.9572
 MAE: 56.4748
 R²: 0.7168
 
+![true vs predicted ic50s](_images/true_vs_predicted_clint.png)
+
 This is actually a reasonable result for microsomal clint. These data are notoriously noisy due to varying conditions, measurements, etc. An important factor is the gender of the species cells were extracted from and although there is some info in the output, it's not reliable enough to use, sadly. 
 
 **After transfer learning**.
