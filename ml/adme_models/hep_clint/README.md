@@ -8,9 +8,11 @@ Training data was retrieved via the Chembl `webresource_client` API, which is pi
 
 ## Model metrics
 
+```
 RMSE: 81.9572
 MAE: 56.4748
 R²: 0.7168
+```
 
 ![true vs predicted ic50s](_images/true_vs_predicted_clint.png)
 
@@ -18,11 +20,7 @@ This is actually a reasonable result for microsomal clint. These data are notori
 
 **After transfer learning**.
 
-```
-RMSE: 47.5916 
-MAE: 27.5201
-R²: 0.8955
-```
+RMSE: 47.5916 | MAE: 27.5201 | R²: 0.8955
 
 We expect a performance bump with transfer learning but this was suspiciously good.
 
