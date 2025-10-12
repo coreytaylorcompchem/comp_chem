@@ -37,4 +37,3 @@ We expect a performance bump with transfer learning but this was suspiciously go
 ## Next steps
 
 * A detailed post at [my blog](https://ahtheelementofsurprise.wordpress.com/comp-chem-blog/) will step through the model code, construction and training. 
-* Performance comparison vs other pre-trained LogD predictors. Spot checks of predictions suggest improved performance when compared to Cxcalc.
