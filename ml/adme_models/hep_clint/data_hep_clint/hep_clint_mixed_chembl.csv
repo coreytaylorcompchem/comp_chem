@@ -1,0 +1,4 @@
+activity_id,assay_chembl_id,molecule_chembl_id,type,standard_units,relation,standard_value,target_chembl_id,target_organism,assay_description,assay_type,smiles,clint,units,assay_class
+18457309,CHEMBL4179622,CHEMBL4202551,CL,mL.min-1.g-1,=,18.7,CHEMBL612558,,Intrinsic clearance in human liver S9 microsomes at 1 uM in presence of NADPH by LC-MS/MS analysis,A,O=C(CCn1cnc([N+](=O)[O-])n1)Nc1cccc(OCc2ccccc2)c1,0.018699999999999998,mL.min-1.kg-1,mixed
+18457311,CHEMBL4179622,CHEMBL6966,CL,mL.min-1.g-1,=,135.0,CHEMBL612558,,Intrinsic clearance in human liver S9 microsomes at 1 uM in presence of NADPH by LC-MS/MS analysis,A,COc1ccc(CCN(C)CCCC(C#N)(c2ccc(OC)c(OC)c2)C(C)C)cc1OC,0.135,mL.min-1.kg-1,mixed
+18457312,CHEMBL4179622,CHEMBL52440,CL,mL.min-1.g-1,=,24.2,CHEMBL612558,,Intrinsic clearance in human liver S9 microsomes at 1 uM in presence of NADPH by LC-MS/MS analysis,A,COc1ccc2c(c1)[C@]13CCCC[C@@H]1[C@H](C2)N(C)CC3,0.0242,mL.min-1.kg-1,mixed
