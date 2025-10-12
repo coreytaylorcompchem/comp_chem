@@ -20,7 +20,9 @@ This is actually a reasonable result for microsomal clint. These data are notori
 
 **After transfer learning**.
 
+```
 RMSE: 47.5916 | MAE: 27.5201 | R²: 0.8955
+```
 
 We expect a performance bump with transfer learning but this was suspiciously good.
 
