@@ -1,4 +1,4 @@
-# DL model to predict human PPB fraction unbound (%)). 
+# DL model to predict human PPB fraction unbound (%). 
 
 In this repo we have a model trained on Chembl data to predict the fraction unbound (f_u) from plasma protein binding (human). 
 
