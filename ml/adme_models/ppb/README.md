@@ -27,9 +27,7 @@ R²: 0.8439
 
 Overall good correlation and good (~0.85) performance, some scatter at low unbound fraction, which is annoying but not fatal.
 
-There's some evidence of model over training in the L2 norms, especially in layers that would be more affected by larger molecules. Will look into this in more detail in time but for now, the model performs well. See the below for some examples of poorly predicted molecules 
-
-![Examples of poor predictions](_images/5x_outliers_grid_examples.png)
+There's some evidence of model over training in the L2 norms, especially in layers that would be more affected by larger molecules. Will look into this in more detail in time but for now, the model performs well. 
 
 See `2025-10-08_ml_ppb_f_u.ipynb` for all the training code and analysis used to generate these data.  
 
