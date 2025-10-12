@@ -26,7 +26,7 @@ R²: 0.6925
 
 Overall correlation is okay (~ 0.7), which is a little better than what's published generally. Not many data points but this gives probably as good a model as one could expect with public sources. 
 
-Here we see the worse predictions:
+Here we see the worst predictions:
 
 ![Examples of poor predictions](_images/5x_outliers_grid.png)
 
