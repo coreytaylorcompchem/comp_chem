@@ -18,7 +18,7 @@ MAE: 7.5827
 R²: 0.8439
 ```
 
-![true vs predicted fraction unbound](_images/true_vs_predicted_true_vs_predicted_percent.png)
+![true vs predicted fraction unbound](_images/true_vs_predicted_percent.png)
 
 Overall good correlation and good (~0.85) performance, some scatter at low unbound fraction, which is annoying but not fatal.
 
