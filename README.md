@@ -1,6 +1,6 @@
 # comp_chem
 
-Where I dump all my comp chem notebooks and code to provide examples for myself and others and from my [computational chemistry blog](https://ahtheelementofsurprise.wordpress.com/blog-2/). In general these will be automated and/or Python workflows.
+Where I dump all my comp chem notebooks and code to provide examples for myself and others and from my [computational chemistry blog](https://ahtheelementofsurprise.wordpress.com/comp-chem-blog/). In general these will be automated and/or Python workflows.
 
 ![logo](_images/comp_chem_karate3.jpg)
 
