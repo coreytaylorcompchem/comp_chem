@@ -1,0 +1,1 @@
+[{"getLindsByPDBsResponse": {"affinities": [{"query": "Neuronal calcium sensor 1", "monomerid": "50008396", "smile": "O=C(CC(c1ccccc1)c1ccccc1)Nc1nc2ccccc2s1", "affinity_type": "Kd", "affinity": "1250", "pmid": "29966094", "doi": "10.1021/acs.jmedchem.8b00088"}]}}]
